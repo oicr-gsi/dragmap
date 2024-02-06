@@ -208,7 +208,7 @@ task runDragmap {
         dragen-os \
             -r ~{dragmapHashTable} \
             -1 ~{read1s} \
-            -2 ~{read2s} \
+            ~{if (defined(fastqR2)) then "-2 ~{read2s}" else ""} \
             --RGSM arg ~{readGroups} \
         | \
         samtools view -b -

@@ -33,9 +33,12 @@ workflow dragmap {
 
     Map[String,dragmapResources] resourceByGenome = { 
       ##UPDATE THE PATHS
-    "hg19": {"samtools/1.9 dragmap/1.2.1 dragmap-hash-table-hg19/p13", "PATH"},
-    "hg38": {"samtools/1.9 dragmap/1.2.1 dragmap-hash-table-hg38/p12", "PATH"},
-    "mm10": {"samtools/1.9 dragmap/1.2.1 dragmap-hash-table-mm10/p6", "PATH"}
+      # dragmap-hash-table-hg19/p13
+      # dragmap-hash-table-hg38/p12
+      # dragmap-hash-table-mm10/p6
+    "hg19": {"samtools/1.9 dragmap/1.2.1", "/scratch2/users/mmohamed/dragmap_hg19"},
+    "hg38": {"samtools/1.9 dragmap/1.2.1", "/scratch2/users/mmohamed/dragmap_ref"},
+    "mm10": {"samtools/1.9 dragmap/1.2.1", "/scratch2/users/mmohamed/dragmap_mm10"}
     }
 
     String dragmapModules = resourceByGenome[reference].modules
@@ -86,7 +89,6 @@ workflow dragmap {
                 fastq1 = p.left,
                 fastq2 = p.right,
             }
-
         }
 
         if (doTrim) {

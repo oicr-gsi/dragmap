@@ -1,6 +1,6 @@
 version 1.0
 
-import "imports/pull_bwaMem.wdl" bwaMem
+import "imports/pull_bwaMem.wdl" as bwaMem
 
 
 struct dragmapResources {
@@ -32,13 +32,18 @@ workflow dragmap {
     }
 
     Map[String,dragmapResources] resourceByGenome = { 
-      ##UPDATE THE PATHS
-      # dragmap-hash-table-hg19/p13
-      # dragmap-hash-table-hg38/p12
-      # dragmap-hash-table-mm10/p6
-    "hg19": {"samtools/1.9 dragmap/1.2.1", "/scratch2/users/mmohamed/dragmap_hg19"},
-    "hg38": {"samtools/1.9 dragmap/1.2.1", "/scratch2/users/mmohamed/dragmap_ref"},
-    "mm10": {"samtools/1.9 dragmap/1.2.1", "/scratch2/users/mmohamed/dragmap_mm10"}
+        "hg19": {
+            "modules": "samtools/1.9 dragmap/1.2.1 dragmap-hash-table-hg19/p13", 
+            "hashTable": "$DRAGMAP_HASH_TABLE_HG19_ROOT/hg19"
+        },
+        "hg38": {
+            "modules": "samtools/1.9 dragmap/1.2.1 dragmap-hash-table-hg38/p12", 
+            "hashTable": "$DRAGMAP_HASH_TABLE_HG38_ROOT/hg38"
+        },
+        "mm10": {
+            "modules": "samtools/1.9 dragmap/1.2.1 dragmap-hash-table-mm10/p6", 
+            "hashTable": "$DRAGMAP_HASH_TABLE_MM10_ROOT/mm10"
+        }
     }
 
     String dragmapModules = resourceByGenome[reference].modules
@@ -59,10 +64,10 @@ workflow dragmap {
         }
         if (defined(fastqR2)) {
             # workaround for converting File? to File
-            File fastqR2_ = select_all([fastqR2])[0]
+            File fastqR2File = select_all([fastqR2])[0]
             call bwaMem.slicer as slicerR2 {
                 input:
-                fastqR = fastqR2,
+                fastqR = fastqR2File,
                 chunkSize = countChunkSize.chunkSize
             }
         }
@@ -134,7 +139,7 @@ workflow dragmap {
     meta {
         author: "Xuemei Luo and Muna Mohamed"
         email: "xuemei.luo@oicr.on.ca, mmohamed@oicr.on.ca"
-        description: "This workflow aligns sequence data provided as fastq files against a genomic reference using bwa (burrows-wheeler-aligner).  Prior to alignment, there are options to remove 5' umi sequence and to trim off 3' sequencing adapter. Readgroup information to be injected into the bam header needs to be provided.  The workflow can also split the input data into a requested number of chunks, align each separately then merge the separate alignments into a single bam file.  This decreases the workflow run time.  Optional bwa mem parameters can be provided to the workflow."
+        description: "This workflow aligns sequence data provided as fastq files using Dragmap (an open source Dragen mapper/aligner). The alignment is completed using a hash table of a reference genome. The workflow imports the bwaMem workflow, there are options to remove 5' umi sequences and trim off 3' sequencing adapters prior to alignment. Readgroup information to be injected into the bam headers must be provided.  The workflow can also split the input data into a requested number of chunks, align each separately then merge the separate alignments into a single bam file.  This decreases the workflow run time."
         dependencies: [
         {
             name: "dragmap/1.2.1",
@@ -145,20 +150,20 @@ workflow dragmap {
             url: "https://github.com/samtools/samtools/archive/0.1.19.tar.gz"
         },
         { 
-          name: "gsi software modules: samtools/1.9 dragmap/1.2.1",
-          url: "https://gitlab.oicr.on.ca/ResearchIT/modulator"
+            name: "gsi software modules: samtools/1.9 dragmap/1.2.1",
+            url: "https://gitlab.oicr.on.ca/ResearchIT/modulator"
         },
         { 
-          name: "gsi hg38 modules: dragmap-hash-table-hg38/p12",
-          url: "https://gitlab.oicr.on.ca/ResearchIT/modulator"
+            name: "gsi hg38 modules: dragmap-hash-table-hg38/p12",
+            url: "https://gitlab.oicr.on.ca/ResearchIT/modulator"
         },
         {
-          name: "gsi hg19 modules: dragmap-hash-table-hg19/p13",
-          url: "https://gitlab.oicr.on.ca/ResearchIT/modulator"
+            name: "gsi hg19 modules: dragmap-hash-table-hg19/p13",
+            url: "https://gitlab.oicr.on.ca/ResearchIT/modulator"
         },
         {
-          name: "gsi mm10 modules: dragmap-hash-table-mm10/p6",
-          url: "https://gitlab.oicr.on.ca/ResearchIT/modulator"
+            name: "gsi mm10 modules: dragmap-hash-table-mm10/p6",
+            url: "https://gitlab.oicr.on.ca/ResearchIT/modulator"
         }
       ]
     }
@@ -186,23 +191,18 @@ task runDragmap {
     parameter_meta {
         read1s: "Fastq file for read 1"
         read2s: "Fastq file for read 2"
-        ## Unsure if I can keep this, and need to ask Mei if this effects downstream modules
-        readGroups: "The readgroup information to be injected into the bam header"
+        readGroups: "The readgroup information to be added into the BAM file header"
         dragmapHashTable: "The hash table prepared by Dragmap using the appropriate reference genome. Used to align sample with Dragmap"
-        modules: "Required environment modules"
+        modules: "Required environment modules to run the task"
         jobMemory: "Memory allocated for the job"
         timeout: "Hours until task timeout"
     }
-
-    # --RGID arg (=1)                                 Read Group ID
-    # --RGSM arg (=none)                              Read Group Sample
-    #   --num-threads arg (=32)                 Worker threads for mapper/aligner (default = maximum available on system)
-    # --output-directory arg                          Output directory
-    # --output-file-prefix arg                        Output filename prefix
+    
+    # Are the inputs always fastq.gz? I want to remove the fastq.gz. But also don't know if that will
+    # Mess with downstream workflows 
     String resultBam = "~{basename(read1s)}.bam"
     String tmpDir = "tmp/"
 
-    # Have to do if/else statement for if single read or not
     command <<<
         set -euo pipefail
         mkdir -p ~{tmpDir}
@@ -210,10 +210,9 @@ task runDragmap {
         dragen-os \
             -r ~{dragmapHashTable} \
             -1 ~{read1s} \
-            ~{if (defined(fastqR2)) then "-2 ~{read2s}" else ""} \
-            --RGSM arg ~{readGroups} \
+            ~{if (defined(read2s)) then "-2 ~{read2s}" else ""} \
         | \
-        samtools view -b -
+        samtools view -b - \
         | \
         samtools sort -O bam -T ~{tmpDir} -o ~{resultBam} - 
     >>>
@@ -221,7 +220,6 @@ task runDragmap {
     runtime {
         modules: "~{modules}"
         memory:  "~{jobMemory} GB"
-        cpu:     "~{threads}"
         timeout: "~{timeout}"
     }  
     
@@ -231,7 +229,7 @@ task runDragmap {
 
     meta {
         output_meta: {
-            outputBam: "Output Bam file aligned to the appropriate genome"
+            outputBam: "Output BAM file aligned to the appropriate genome"
         }
     }
 

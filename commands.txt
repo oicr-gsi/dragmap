@@ -1,0 +1,59 @@
+## Commands
+This section lists command(s) run by dragmap workflow
+
+* Running dragmap
+
+=== Align to reference using Dragmap ===.
+
+```
+        set -euo pipefail
+        mkdir -p ~{tmpDir}
+        
+        dragen-os \
+            -r ~{dragmapHashTable} \
+            -1 ~{read1s} \
+            ~{if (defined(read2s)) then "-2 ~{read2s}" else ""} \
+            ~{addParam} \
+        | \
+        samtools view -b - \
+        | \
+        samtools sort -O bam -T ~{tmpDir} -o ~{resultBam} - 
+```
+
+=== Assigns read-groups to reads in BAM file  ===.
+
+```
+        # An array containing potential read-group fields
+        fieldNames=("ID:" "LB:" "PL:" "PU:" "SM:" "CN:" "DS:" "DT:" "FO:" "KS:" "PG:" "PI:" "PM:")
+
+        # Removes the start of the readGroups string (@RG\\t) and replaces tabs with commas        
+        strippedString=$(echo -e ~{readGroups} | sed -E "s/@RG\\t//" | sed -E "s/\\t/,/g")
+        
+        # Declares an associative array and appends the values of the fields present in the readGroups string
+        declare -A fieldsArray
+        
+        for field in "${fieldNames[@]}"; do
+            if [[ ${strippedString} == *${field}* ]]; then 
+                fieldsArray[${field}]=$(echo "${strippedString}" | awk -F "${field}" '{print $2}' | cut -d ',' -f 1) 
+            fi
+        done
+
+        java -jar $PICARD_ROOT/picard.jar AddOrReplaceReadGroups \
+            I= ~{outputBam} \
+            O= ~{resultReadGroupBam} \
+            $( [[ -v fieldsArray["ID:"] ]] && echo "RGID=${fieldsArray["ID:"]}" || : ) \
+            $( [[ -v fieldsArray["LB:"] ]] && echo "RGLB=${fieldsArray["LB:"]}" || : ) \
+            $( [[ -v fieldsArray["PL:"] ]] && echo "RGPL=${fieldsArray["PL:"]}" || : ) \
+            $( [[ -v fieldsArray["PU:"] ]] && echo "RGPU=${fieldsArray["PU:"]}" || : ) \
+            $( [[ -v fieldsArray["SM:"] ]] && echo "RGSM=${fieldsArray["SM:"]}" || : ) \
+            $( [[ -v fieldsArray["CN:"] ]] && echo "RGCN=${fieldsArray["CN:"]}" || : ) \
+            $( [[ -v fieldsArray["DS:"] ]] && echo "RGDS=${fieldsArray["DS:"]}" || : ) \
+            $( [[ -v fieldsArray["DT:"] ]] && echo "RGDT=${fieldsArray["DT:"]}" || : ) \
+            $( [[ -v fieldsArray["FO:"] ]] && echo "RGFO=${fieldsArray["FO:"]}" || : ) \
+            $( [[ -v fieldsArray["KS:"] ]] && echo "RGKS=${fieldsArray["KS:"]}" || : ) \
+            $( [[ -v fieldsArray["PG:"] ]] && echo "RGPG=${fieldsArray["PG:"]}" || : ) \
+            $( [[ -v fieldsArray["PI:"] ]] && echo "RGPI=${fieldsArray["PI:"]}" || : ) \
+            $( [[ -v fieldsArray["PM:"] ]] && echo "RGPM=${fieldsArray["PM:"]}" || : )
+```
+* This workflow imports the bwaMem workflow. See the commands in the README file for the bwaMem workflow.
+

@@ -80,7 +80,7 @@
         },
         "id": "PCSI0022C_notrim_nosplit_bam",
         "metadata": {
-            "dragmap.bwaMemBam": {
+            "dragmap.dragmapBam": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_notrim_nosplit_bam_@JENKINSID@"
@@ -88,7 +88,7 @@
                 ],
                 "type": "ALL"
             },
-            "dragmap.bwaMemIndex": {
+            "dragmap.dragmapIndex": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_notrim_nosplit_bam_@JENKINSID@"
@@ -203,7 +203,7 @@
         },
         "id": "PCSI0022C_trim_nosplit_bam",
         "metadata": {
-            "dragmap.bwaMemBam": {
+            "dragmap.dragmapBam": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_nosplit_bam_@JENKINSID@"
@@ -211,7 +211,7 @@
                 ],
                 "type": "ALL"
             },
-            "dragmap.bwaMemIndex": {
+            "dragmap.dragmapIndex": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_nosplit_bam_@JENKINSID@"
@@ -326,7 +326,7 @@
         },
         "id": "PCSI0022C_trim_split_hg19_bam",
         "metadata": {
-            "dragmap.bwaMemBam": {
+            "dragmap.dragmapBam": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg19_bam_@JENKINSID@"
@@ -334,7 +334,7 @@
                 ],
                 "type": "ALL"
             },
-            "dragmap.bwaMemIndex": {
+            "dragmap.dragmapIndex": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg19_bam_@JENKINSID@"
@@ -449,7 +449,7 @@
         },
         "id": "PCSI0022C_notrim_split_hg19_bam",
         "metadata": {
-            "dragmap.bwaMemBam": {
+            "dragmap.dragmapBam": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_notrim_split_hg19_bam_@JENKINSID@"
@@ -457,7 +457,7 @@
                 ],
                 "type": "ALL"
             },
-            "dragmap.bwaMemIndex": {
+            "dragmap.dragmapIndex": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_notrim_split_hg19_bam_@JENKINSID@"
@@ -572,7 +572,7 @@
         },
         "id": "PCSI0022C_trim_split_hg38_bam",
         "metadata": {
-            "dragmap.bwaMemBam": {
+            "dragmap.dragmapBam": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg38_bam_@JENKINSID@"
@@ -580,7 +580,7 @@
                 ],
                 "type": "ALL"
             },
-            "dragmap.bwaMemIndex": {
+            "dragmap.dragmapIndex": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg38_bam_@JENKINSID@"
@@ -684,7 +684,7 @@
         },
         "id": "PCSI0022C_trim_split_hg19_bam_se",
         "metadata": {
-            "dragmap.bwaMemBam": {
+            "dragmap.dragmapBam": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg19_bam_se_@JENKINSID@"
@@ -692,7 +692,7 @@
                 ],
                 "type": "ALL"
             },
-            "dragmap.bwaMemIndex": {
+            "dragmap.dragmapIndex": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg19_bam_se_@JENKINSID@"
@@ -796,7 +796,7 @@
         },
         "id": "PCSI0022C_trim_nosplit_hg19_bam_se",
         "metadata": {
-            "dragmap.bwaMemBam": {
+            "dragmap.dragmapBam": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_nosplit_hg19_bam_se_@JENKINSID@"
@@ -804,7 +804,7 @@
                 ],
                 "type": "ALL"
             },
-            "dragmap.bwaMemIndex": {
+            "dragmap.dragmapIndex": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_nosplit_hg19_bam_se_@JENKINSID@"
@@ -908,7 +908,7 @@
         },
         "id": "PCSI0022C_notrim_nosplit_hg19_bam_se",
         "metadata": {
-            "dragmap.bwaMemBam": {
+            "dragmap.dragmapBam": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_notrim_nosplit_hg19_bam_se_@JENKINSID@"
@@ -916,7 +916,7 @@
                 ],
                 "type": "ALL"
             },
-            "dragmap.bwaMemIndex": {
+            "dragmap.dragmapIndex": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_notrim_nosplit_hg19_bam_se_@JENKINSID@"
@@ -1031,7 +1031,7 @@
         },
         "id": "PCSI0022C_umi_adapter_trim_split_hg19_bam",
         "metadata": {
-            "dragmap.bwaMemBam": {
+            "dragmap.dragmapBam": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_umi_adapter_trim_split_hg19_bam_@JENKINSID@"
@@ -1039,7 +1039,7 @@
                 ],
                 "type": "ALL"
             },
-            "dragmap.bwaMemIndex": {
+            "dragmap.dragmapIndex": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_umi_adapter_trim_split_hg19_bam_@JENKINSID@"
@@ -1154,7 +1154,7 @@
         },
         "id": "PCSI0022C_trim_split_hg38_numRead_bam",
         "metadata": {
-            "dragmap.bwaMemBam": {
+            "dragmap.dragmapBam": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg38_numRead_bam_@JENKINSID@"
@@ -1162,7 +1162,7 @@
                 ],
                 "type": "ALL"
             },
-            "dragmap.bwaMemIndex": {
+            "dragmap.dragmapIndex": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg38_numRead_bam_@JENKINSID@"
@@ -1277,7 +1277,7 @@
         },
         "id": "neat_5x_umi_extract_nosplit_hg19_bam",
         "metadata": {
-            "dragmap.bwaMemBam": {
+            "dragmap.dragmapBam": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_neat_5x_umi_extract_nosplit_hg19_bam_@JENKINSID@"
@@ -1285,7 +1285,7 @@
                 ],
                 "type": "ALL"
             },
-            "dragmap.bwaMemIndex": {
+            "dragmap.dragmapIndex": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_neat_5x_umi_extract_nosplit_hg19_bam_@JENKINSID@"
@@ -1320,4 +1320,3 @@
         ]
     }
 ]
-

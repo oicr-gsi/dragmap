@@ -220,7 +220,7 @@ task runDragmap {
         String? addParam
         String modules
         Int jobMemory = 50
-        Int timeout = 48
+        Int timeout = 96
     }
 
     parameter_meta {

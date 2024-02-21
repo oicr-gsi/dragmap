@@ -50,7 +50,7 @@ workflow dragmap {
     String dragmapModules = resourceByGenome[reference].modules
     String dragmapHashTable = resourceByGenome[reference].hashTable
 
-    # Validating the inputted read-group information
+    # Validating the read-group information
     call readGroupCheck {  
         input: 
         readGroups = readGroups 
@@ -218,7 +218,7 @@ task readGroupCheck {
 
     input { 
         String readGroups 
-        Int jobMemory = 5 
+        Int jobMemory = 1
         Int timeout = 1 
     } 
 
@@ -232,11 +232,9 @@ task readGroupCheck {
         set -euo pipefail 
 
         fieldNames=("ID=" "LB=" "PL=" "PU=" "SM=" "CN=" "DS=" "DT=" "FO=" "KS=" "PG=" "PI=" "PM=") 
-
-        IFS="," 
-
+        
         # Split the string into an array 
-        read -ra readFields <<< ~{readGroups} 
+        IFS=, read -ra readFields <<< ~{readGroups}
 
         for field in "${readFields[@]}"; do 
             tag=${field:0:3}
@@ -247,6 +245,8 @@ task readGroupCheck {
                 fi
             done 
             if ! $validTag; then
+                # Redirect error message to stderr
+                echo "Invalid tag: '$tag'" >&2  
                 exit 1
             fi
         done 

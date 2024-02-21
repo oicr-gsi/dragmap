@@ -50,111 +50,96 @@ workflow dragmap {
     String dragmapModules = resourceByGenome[reference].modules
     String dragmapHashTable = resourceByGenome[reference].hashTable
 
-    # Validating the readGroups string
-    Array[String] readGroupsTags = split(readGroups, ",")
-
-    for tag in readGroupsTags {
-        if(
-            !startsWith(tag,"ID=") &&
-            !startsWith(tag,"LB=") &&
-            !startsWith(tag,"PL=") &&
-            !startsWith(tag,"PU=") &&
-            !startsWith(tag,"SM=") &&
-            !startsWith(tag,"CN=") &&
-            !startsWith(tag,"DS=") &&
-            !startsWith(tag,"DT=") &&
-            !startsWith(tag,"FO=") &&
-            !startsWith(tag,"KS=") &&
-            !startsWith(tag,"PG=") &&
-            !startsWith(tag,"PI=") &&
-            !startsWith(tag,"PM=")
-        ){
-            fail("readGroups string contains invalid tag")
-        }
+    # Validating the inputted read-group information
+    call readGroupCheck {  
+        input: 
+        readGroups = readGroups 
     }
 
-    if (numChunk > 1) {
-        call countChunkSize {
-            input:
-            fastqR1 = fastqR1,
-            numChunk = numChunk,
-            numReads = numReads
-        }
-    
-        call slicer as slicerR1 { 
-            input: 
-            fastqR = fastqR1,
-            chunkSize = countChunkSize.chunkSize
-        }
-        if (defined(fastqR2)) {
-            # workaround for converting File? to File
-            File fastqR2File = select_all([fastqR2])[0]
-            call slicer as slicerR2 {
+    if (readGroupCheck.validReadGroups == "Valid") {
+        if (numChunk > 1) {
+            call countChunkSize {
                 input:
-                fastqR = fastqR2File,
+                fastqR1 = fastqR1,
+                numChunk = numChunk,
+                numReads = numReads
+            }
+        
+            call slicer as slicerR1 { 
+                input: 
+                fastqR = fastqR1,
                 chunkSize = countChunkSize.chunkSize
             }
-        }
-    }
-
-    Array[File] fastq1 = select_first([slicerR1.chunkFastq, [fastqR1]])
-
-    if(defined(fastqR2)) {
-        Array[File?] fastq2 = select_first([slicerR2.chunkFastq, [fastqR2]])
-        Array[Pair[File,File?]] pairedFastqs = zip(fastq1,fastq2)
-    }
-
-    if(!defined(fastqR2)) {
-        Array[Pair[File,File?]] singleFastqs = cross(fastq1,[fastqR2])
-    }
-
-    Array[Pair[File,File?]] outputs = select_first([pairedFastqs, singleFastqs])
-
-    scatter (p in outputs) {
-        if (doUMIextract) {
-            call extractUMIs { 
-                input:
-                fastq1 = p.left,
-                fastq2 = p.right
+            if (defined(fastqR2)) {
+                # workaround for converting File? to File
+                File fastqR2File = select_all([fastqR2])[0]
+                call slicer as slicerR2 {
+                    input:
+                    fastqR = fastqR2File,
+                    chunkSize = countChunkSize.chunkSize
+                }
             }
+        }
+
+        Array[File] fastq1 = select_first([slicerR1.chunkFastq, [fastqR1]])
+
+        if(defined(fastqR2)) {
+            Array[File?] fastq2 = select_first([slicerR2.chunkFastq, [fastqR2]])
+            Array[Pair[File,File?]] pairedFastqs = zip(fastq1,fastq2)
+        }
+
+        if(!defined(fastqR2)) {
+            Array[Pair[File,File?]] singleFastqs = cross(fastq1,[fastqR2])
+        }
+
+        Array[Pair[File,File?]] outputs = select_first([pairedFastqs, singleFastqs])
+
+        scatter (p in outputs) {
+            if (doUMIextract) {
+                call extractUMIs { 
+                    input:
+                    fastq1 = p.left,
+                    fastq2 = p.right
+                }
+            }
+
+            if (doTrim) {
+                call adapterTrimming { 
+                    input:
+                    fastqR1 = select_first([extractUMIs.fastqR1, p.left]),
+                    fastqR2 = if (defined(fastqR2)) then select_first([extractUMIs.fastqR2, p.right]) else fastqR2
+                }
+            }
+
+            call runDragmap { 
+                input: 
+                read1s = select_first([adapterTrimming.resultR1, extractUMIs.fastqR1, p.left]),
+                read2s = if (defined(fastqR2)) then select_first([adapterTrimming.resultR2, extractUMIs.fastqR2, p.right]) else fastqR2,
+                modules = dragmapModules,
+                dragmapHashTable = dragmapHashTable
+            }
+        }
+
+        call bamMerge {
+            input:
+            bams = runDragmap.outputBam,
+            outputFileNamePrefix = outputFileNamePrefix
+        }
+
+        call addReadGroups {
+            input:
+            outputBam = bamMerge.outputMergedBam,
+            readGroups = readGroups
         }
 
         if (doTrim) {
-            call adapterTrimming { 
+            call adapterTrimmingLog {
                 input:
-                fastqR1 = select_first([extractUMIs.fastqR1, p.left]),
-                fastqR2 = if (defined(fastqR2)) then select_first([extractUMIs.fastqR2, p.right]) else fastqR2
+                inputLogs = select_all(adapterTrimming.log),
+                outputFileNamePrefix = outputFileNamePrefix,
+                numChunk = numChunk,
+                singleEnded = if (defined(fastqR2)) then false else true
             }
-        }
-
-        call runDragmap { 
-            input: 
-            read1s = select_first([adapterTrimming.resultR1, extractUMIs.fastqR1, p.left]),
-            read2s = if (defined(fastqR2)) then select_first([adapterTrimming.resultR2, extractUMIs.fastqR2, p.right]) else fastqR2,
-            modules = dragmapModules,
-            dragmapHashTable = dragmapHashTable
-        }
-    }
-
-    call bamMerge {
-        input:
-        bams = runDragmap.outputBams,
-        outputFileNamePrefix = outputFileNamePrefix
-    }
-
-    call addReadGroups {
-        input:
-        outputBam = bamMerge.outputMergedBam,
-        readGroups = readGroups
-    }
-
-    if (doTrim) {
-        call adapterTrimmingLog {
-            input:
-            inputLogs = select_all(adapterTrimming.log),
-            outputFileNamePrefix = outputFileNamePrefix,
-            numChunk = numChunk,
-            singleEnded = if (defined(fastqR2)) then false else true
         }
     }
 
@@ -221,17 +206,74 @@ workflow dragmap {
     }
 
     output {
-        File dragmapBam = addReadGroups.outputReadGroupBam
-        File dragmapIndex = addReadGroups.outputReadGroupBai
+        File? dragmapBam = addReadGroups.outputReadGroupBam
+        File? dragmapIndex = addReadGroups.outputReadGroupBai
         File? log = adapterTrimmingLog.summaryLog
         File? cutAdaptAllLogs = adapterTrimmingLog.allLogs
     }
 
 }
 
+task readGroupCheck { 
+
+    input { 
+        String readGroups 
+        Int jobMemory = 5 
+        Int timeout = 1 
+    } 
+
+    parameter_meta { 
+        readGroups: "The read-group information to be added into the BAM file header" 
+        jobMemory: "Memory allocated for this job" 
+        timeout: "Hours before task timeout" 
+    } 
+    
+    command <<< 
+        set -euo pipefail 
+
+        fieldNames=("ID=" "LB=" "PL=" "PU=" "SM=" "CN=" "DS=" "DT=" "FO=" "KS=" "PG=" "PI=" "PM=") 
+
+        IFS="," 
+
+        # Split the string into an array 
+        read -ra readFields <<< ~{readGroups} 
+
+        for field in "${readFields[@]}"; do 
+            tag=${field:0:3}
+            validTag=false
+            for name in "${fieldNames[@]}"; do
+                if [ "$tag" == "$name" ]; then
+                    validTag=true
+                fi
+            done 
+            if ! $validTag; then
+                exit 1
+            fi
+        done 
+
+        echo "Valid" > validReadGroups_file
+    >>> 
+
+    runtime { 
+        memory: "~{jobMemory} GB" 
+        timeout: "~{timeout}" 
+    } 
+
+    output { 
+        String validReadGroups = read_string("validReadGroups_file") 
+    } 
+
+    meta { 
+        output_meta: { 
+            validReadGroups: "String specifying if the inputted read-group information is valid" 
+        } 
+    }  
+
+} 
+
 
 # Function copied from the bwaMem workflow
-task countChunkSize{
+task countChunkSize {
 
     input {
         File fastqR1
@@ -570,7 +612,7 @@ task bamMerge{
 
     meta {
         output_meta: {
-            outputMergedBam: "Output merged BAM aligned to genome"
+            outputMergedBam: "Output merged, sorted BAM aligned to genome"
         }
     } 
      
@@ -608,8 +650,8 @@ task addReadGroups {
         declare -A fieldsArray
         
         for field in "${fieldNames[@]}"; do
-            if [[ ${strippedString} == *${field}* ]]; then 
-                fieldsArray[${field}]=$(echo "${strippedString}" | awk -F "${field}" '{print $2}' | cut -d ',' -f 1) 
+            if [[ ~{readGroups} == *${field}* ]]; then 
+                fieldsArray[${field}]=$(echo ~{readGroups} | awk -F "${field}" '{print $2}' | cut -d ',' -f 1) 
             fi
         done
 
@@ -645,7 +687,7 @@ task addReadGroups {
 
     meta {
         output_meta: {
-            outputReadGroupBam: "Output BAM file aligned to the appropriate genome with read-group information in the header"
+            outputReadGroupBam: "Output BAM file aligned to the appropriate genome with read-group information in the header",
             outputReadGroupBai: "Output index file for the merged BAM file with read-group information"
         }
     }

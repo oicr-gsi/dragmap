@@ -263,7 +263,7 @@ task readGroupCheck {
 
     meta { 
         output_meta: { 
-            validReadGroups: "String specifying if the inputted read-group information is valid" 
+            validReadGroups: "Boolean specifying if the read-group information is valid" 
         } 
     }  
 
@@ -635,7 +635,7 @@ task addReadGroups {
         timeout: "Hours until task timeout"
     }
     
-    String fileNamePrefix = basename(mergedBam, ".bam")
+    String fileNamePrefix = basename(mergedBam, "_merged.bam")
     String resultReadGroupBam = "~{fileNamePrefix}.bam"
     String resultReadGroupBai = "~{fileNamePrefix}.bai"
 

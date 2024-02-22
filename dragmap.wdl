@@ -637,6 +637,7 @@ task addReadGroups {
     
     String fileNamePrefix = basename(outputBam, ".bam")
     String resultReadGroupBam = "~{fileNamePrefix}_readgroup.bam"
+    String resultReadGroupBai = "~{fileNamePrefix}_readgroup.bai"
 
     command <<<
         set -euo pipefail
@@ -680,7 +681,7 @@ task addReadGroups {
     
     output {
         File outputReadGroupBam = "~{resultReadGroupBam}"
-        File outputReadGroupBai = "~{resultReadGroupBam}"
+        File outputReadGroupBai = "~{resultReadGroupBai}"
     }
 
     meta {

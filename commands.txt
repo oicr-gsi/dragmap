@@ -3,11 +3,9 @@ This section lists command(s) run by dragmap workflow
 
 * Running dragmap
 
-=== Align to reference using Dragmap ===.
+=== Ensures the read-group information is valid, and in the correct format prior to running the rest of the workflow ===.
 
-``` 
-        set -euo pipefail 
-
+```
         fieldNames=("ID=" "LB=" "PL=" "PU=" "SM=" "CN=" "DS=" "DT=" "FO=" "KS=" "PG=" "PI=" "PM=") 
         
         # Split the string into an array 
@@ -27,27 +25,23 @@ This section lists command(s) run by dragmap workflow
                 exit 1
             fi
         done 
-
-        echo "Valid" > validReadGroups_file
 ```
 
-```
-        set -euo pipefail
+=== Parallelizes the alignment by splitting the fastq files into chunks. Subsequent steps will be run on the fastq chunks (Optional) ===.
 
+```
         if [ -z "~{numReads}" ]; then
             totalLines=$(zcat ~{fastqR1} | wc -l)
         else totalLines=$((~{numReads}*4))
         fi
         
         python3 -c "from math import ceil; print (int(ceil(($totalLines/4.0)/~{numChunk})*4))"
-```
-```
-        set -euo pipefail
         slicer -i ~{fastqR} -l ~{chunkSize} --gzip 
 ```
-```
-        set -euo pipefail
 
+=== Trims off the UMI bases (Optional) ===.
+
+```
         barcodex-rs --umilist ~{umiList} --prefix ~{outputPrefix} --separator "__" inline \
         --pattern1 '~{pattern1}' --r1-in ~{fastq1} \
         ~{if (defined(fastq2)) then "--pattern2 '~{pattern2}' --r2-in ~{fastq2} " else ""}
@@ -58,9 +52,10 @@ This section lists command(s) run by dragmap workflow
         echo "{$(sort -i tmp.txt)}" > new.txt
         tr '\n' ',' < new.txt | sed 's/,$//' > ~{outputPrefix}_UMI_counts.json
 ```
-```
-        set -euo pipefail
 
+=== Trims off adapter sequence (Optional) ===.
+
+```
         cutadapt -q ~{trimMinQuality} \
                 -m ~{trimMinLength} \
                 -a ~{adapter1} \
@@ -71,9 +66,10 @@ This section lists command(s) run by dragmap workflow
                 ~{fastqR1} \
                 ~{fastqR2} > ~{resultLog}
 ```
-```
-        set -euo pipefail
 
+=== Align to reference using Dragmap ===.
+
+```
         dragen-os \
             -r ~{dragmapHashTable} \
             -1 ~{read1s} \
@@ -82,17 +78,20 @@ This section lists command(s) run by dragmap workflow
         | \
         samtools view -b -o ~{resultBam} -
 ```
+
+=== Merge parallelized alignments (if the fastq was split) and sort the BAM file ===.
+
 ```
-        set -euo pipefail
         mkdir -p ~{tmpDir}
 
         samtools merge -O bam - ~{sep=" " bams} \
         | \
         samtools sort -O bam -T ~{tmpDir} -o ~{resultMergedBam} - 
 ```
-```
-        set -euo pipefail
 
+=== Assigns read-groups and index BAM file ===.
+
+```
         # An array containing potential read-group fields
         fieldNames=("ID=" "LB=" "PL=" "PU=" "SM=" "CN=" "DS=" "DT=" "FO=" "KS=" "PG=" "PI=" "PM=")
 
@@ -105,7 +104,7 @@ This section lists command(s) run by dragmap workflow
             fi
         done
 
-        java -jar $PICARD_ROOT/picard.jar AddOrReplaceReadGroups \
+        java -jar picard.jar AddOrReplaceReadGroups \
             CREATE_INDEX=true \
             I= ~{outputBam} \
             O= ~{resultReadGroupBam} \
@@ -123,6 +122,9 @@ This section lists command(s) run by dragmap workflow
             $( [[ -v fieldsArray["PI="] ]] && echo "RGPI=${fieldsArray["PI="]}" || : ) \
             $( [[ -v fieldsArray["PM="] ]] && echo "RGPM=${fieldsArray["PM="]}" || : )
 ```
+
+=== Merges parallelized adapter trimming logs ===.
+
 ```
         COMMANDS NOT SHOWN, see WDL for details
 ```

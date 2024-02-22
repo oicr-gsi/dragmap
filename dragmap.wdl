@@ -56,7 +56,7 @@ workflow dragmap {
         readGroups = readGroups 
     }
 
-    if (readGroupCheck.validReadGroups == "Valid") {
+    if (readGroupCheck.validReadGroups) {
         if (numChunk > 1) {
             call countChunkSize {
                 input:
@@ -146,7 +146,7 @@ workflow dragmap {
     meta {
         author: "Xuemei Luo and Muna Mohamed"
         email: "xuemei.luo@oicr.on.ca, mmohamed@oicr.on.ca"
-        description: "This workflow aligns sequence data provided as fastq files using Dragmap (an open source Dragen mapper/aligner). The alignment is completed using a hash table of a reference genome. The workflow copies functions from the bwaMem workflow, to provide options to remove 5' umi sequences and trim off 3' sequencing adapters prior to alignment. Using these functions, this workflow can also split the input data into a requested number of chunks, align each separately then merge the separate alignments into a single BAM file to decrease workflow runtime. Read-group information must be provided."
+        description: "This workflow aligns sequence data provided as fastq files using Dragmap (an open source Dragen mapper/aligner). The alignment is completed using a hash table of a reference genome. The workflow borrows functions from the bwaMem workflow, to provide options to remove 5' umi sequences and trim off 3' sequencing adapters prior to alignment. Using these functions, this workflow can also split the input data into a requested number of chunks, align each separately then merge the separate alignments into a single BAM file to decrease workflow runtime. Read-group information must be provided."
         dependencies: [
             {
                 name: "dragmap/1.2.1",
@@ -250,8 +250,6 @@ task readGroupCheck {
                 exit 1
             fi
         done 
-
-        echo "Valid" > validReadGroups_file
     >>> 
 
     runtime { 
@@ -260,7 +258,7 @@ task readGroupCheck {
     } 
 
     output { 
-        String validReadGroups = read_string("validReadGroups_file") 
+        Boolean validReadGroups = true
     } 
 
     meta { 

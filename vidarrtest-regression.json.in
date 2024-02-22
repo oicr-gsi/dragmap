@@ -13,7 +13,6 @@
             "dragmap.adapterTrimmingLog.jobMemory": null,
             "dragmap.adapterTrimmingLog.timeout": null,
             "dragmap.adapterTrimming.umiLength": null,
-            "dragmap.addReadGroups.readGroups": "'@RG\\tID:121005_h804_0096_AD0V4NACXX-NoIndex_6\\tLB:PCSI0022C\\tPL:ILLUMINA\\tPU:121005_h804_0096_AD0V4NACXX-NoIndex_6\\tSM:PCSI0022C'",
             "dragmap.addReadGroups.modules": null,
             "dragmap.addReadGroups.jobMemory": null,
             "dragmap.addReadGroups.timeout": null,
@@ -56,12 +55,12 @@
                 },
                 "type": "EXTERNAL"
             },
-            "dragmap.indexBam.jobMemory": null,
-            "dragmap.indexBam.modules": null,
-            "dragmap.indexBam.timeout": null,
             "dragmap.numChunk": null,
             "dragmap.numReads": null,
             "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_PCSI0022C_NoIndex_L006_001",
+            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=PCSI0022C,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=PCSI0022C",
+            "dragmap.readGroupCheck.jobMemory": null,
+            "dragmap.readGroupCheck.timeout": null,
             "dragmap.reference": "hg19",
             "dragmap.runDragmap.addParam": null,
             "dragmap.runDragmap.jobMemory": null,
@@ -80,7 +79,7 @@
         },
         "id": "PCSI0022C_notrim_nosplit_bam",
         "metadata": {
-            "dragmap.bwaMemBam": {
+            "dragmap.dragmapBam": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_notrim_nosplit_bam_@JENKINSID@"
@@ -88,7 +87,7 @@
                 ],
                 "type": "ALL"
             },
-            "dragmap.bwaMemIndex": {
+            "dragmap.dragmapIndex": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_notrim_nosplit_bam_@JENKINSID@"
@@ -133,7 +132,6 @@
             "dragmap.adapterTrimming.timeout": null,
             "dragmap.adapterTrimming.trimMinLength": null,
             "dragmap.adapterTrimming.trimMinQuality": null,
-            "dragmap.addReadGroups.readGroups": "'@RG\\tID:121005_h804_0096_AD0V4NACXX-NoIndex_6\\tLB:PCSI0022C\\tPL:ILLUMINA\\tPU:121005_h804_0096_AD0V4NACXX-NoIndex_6\\tSM:PCSI0022C'",
             "dragmap.addReadGroups.modules": null,
             "dragmap.addReadGroups.jobMemory": null,
             "dragmap.addReadGroups.timeout": null,
@@ -179,12 +177,12 @@
                 },
                 "type": "EXTERNAL"
             },
-            "dragmap.indexBam.jobMemory": null,
-            "dragmap.indexBam.modules": null,
-            "dragmap.indexBam.timeout": null,
             "dragmap.numChunk": null,
             "dragmap.numReads": null,
             "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_PCSI0022C_NoIndex_L006_001",
+            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=PCSI0022C,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=PCSI0022C",
+            "dragmap.readGroupCheck.jobMemory": null,
+            "dragmap.readGroupCheck.timeout": null,
             "dragmap.reference": "hg19",
             "dragmap.runDragmap.addParam": null,
             "dragmap.runDragmap.jobMemory": null,
@@ -203,7 +201,7 @@
         },
         "id": "PCSI0022C_trim_nosplit_bam",
         "metadata": {
-            "dragmap.bwaMemBam": {
+            "dragmap.dragmapBam": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_nosplit_bam_@JENKINSID@"
@@ -211,7 +209,7 @@
                 ],
                 "type": "ALL"
             },
-            "dragmap.bwaMemIndex": {
+            "dragmap.dragmapIndex": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_nosplit_bam_@JENKINSID@"
@@ -259,7 +257,6 @@
             "dragmap.adapterTrimmingLog.jobMemory": null,
             "dragmap.adapterTrimmingLog.timeout": null,
             "dragmap.adapterTrimming.umiLength": null,
-            "dragmap.addReadGroups.readGroups": "'@RG\\tID:121005_h804_0096_AD0V4NACXX-NoIndex_6\\tLB:PCSI0022C\\tPL:ILLUMINA\\tPU:121005_h804_0096_AD0V4NACXX-NoIndex_6\\tSM:PCSI0022C'",
             "dragmap.addReadGroups.modules": null,
             "dragmap.addReadGroups.jobMemory": null,
             "dragmap.addReadGroups.timeout": null,
@@ -302,12 +299,12 @@
                 },
                 "type": "EXTERNAL"
             },
-            "dragmap.indexBam.jobMemory": null,
-            "dragmap.indexBam.modules": null,
-            "dragmap.indexBam.timeout": null,
             "dragmap.numChunk": 4,
             "dragmap.numReads": null,
             "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_PCSI0022C_NoIndex_L006_001",
+            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=PCSI0022C,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=PCSI0022C",
+            "dragmap.readGroupCheck.jobMemory": null,
+            "dragmap.readGroupCheck.timeout": null,
             "dragmap.reference": "hg19",
             "dragmap.runDragmap.addParam": null,
             "dragmap.runDragmap.jobMemory": null,
@@ -326,7 +323,7 @@
         },
         "id": "PCSI0022C_trim_split_hg19_bam",
         "metadata": {
-            "dragmap.bwaMemBam": {
+            "dragmap.dragmapBam": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg19_bam_@JENKINSID@"
@@ -334,7 +331,7 @@
                 ],
                 "type": "ALL"
             },
-            "dragmap.bwaMemIndex": {
+            "dragmap.dragmapIndex": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg19_bam_@JENKINSID@"
@@ -382,7 +379,6 @@
             "dragmap.adapterTrimmingLog.jobMemory": null,
             "dragmap.adapterTrimmingLog.timeout": null,
             "dragmap.adapterTrimming.umiLength": null,
-            "dragmap.addReadGroups.readGroups": "'@RG\\tID:121005_h804_0096_AD0V4NACXX-NoIndex_6\\tLB:PCSI0022C\\tPL:ILLUMINA\\tPU:121005_h804_0096_AD0V4NACXX-NoIndex_6\\tSM:PCSI0022C'",
             "dragmap.addReadGroups.modules": null,
             "dragmap.addReadGroups.jobMemory": null,
             "dragmap.addReadGroups.timeout": null,            
@@ -425,12 +421,12 @@
                 },
                 "type": "EXTERNAL"
             },
-            "dragmap.indexBam.jobMemory": null,
-            "dragmap.indexBam.modules": null,
-            "dragmap.indexBam.timeout": null,
             "dragmap.numChunk": 4,
             "dragmap.numReads": null,
-            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_PCSI0022C_NoIndex_L006_001", 
+            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_PCSI0022C_NoIndex_L006_001",
+            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=PCSI0022C,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=PCSI0022C",
+            "dragmap.readGroupCheck.jobMemory": null,
+            "dragmap.readGroupCheck.timeout": null,
             "dragmap.reference": "hg19",
             "dragmap.runDragmap.addParam": null,
             "dragmap.runDragmap.jobMemory": null,
@@ -449,7 +445,7 @@
         },
         "id": "PCSI0022C_notrim_split_hg19_bam",
         "metadata": {
-            "dragmap.bwaMemBam": {
+            "dragmap.dragmapBam": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_notrim_split_hg19_bam_@JENKINSID@"
@@ -457,7 +453,7 @@
                 ],
                 "type": "ALL"
             },
-            "dragmap.bwaMemIndex": {
+            "dragmap.dragmapIndex": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_notrim_split_hg19_bam_@JENKINSID@"
@@ -505,7 +501,6 @@
             "dragmap.adapterTrimmingLog.jobMemory": null,
             "dragmap.adapterTrimmingLog.timeout": null,
             "dragmap.adapterTrimming.umiLength": null,
-            "dragmap.addReadGroups.readGroups": "'@RG\\tID:121005_h804_0096_AD0V4NACXX-NoIndex_6\\tLB:PCSI0022C\\tPL:ILLUMINA\\tPU:121005_h804_0096_AD0V4NACXX-NoIndex_6\\tSM:PCSI0022C'",
             "dragmap.addReadGroups.modules": null,
             "dragmap.addReadGroups.jobMemory": null,
             "dragmap.addReadGroups.timeout": null,            
@@ -548,12 +543,12 @@
                 },
                 "type": "EXTERNAL"
             },
-            "dragmap.indexBam.jobMemory": null,
-            "dragmap.indexBam.modules": null,
-            "dragmap.indexBam.timeout": null,
             "dragmap.numChunk": 4,
             "dragmap.numReads": null,
-            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_PCSI0022C_NoIndex_L006_001",      
+            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_PCSI0022C_NoIndex_L006_001",  
+            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=PCSI0022C,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=PCSI0022C",    
+            "dragmap.readGroupCheck.jobMemory": null,
+            "dragmap.readGroupCheck.timeout": null,
             "dragmap.reference": "hg38",
             "dragmap.runDragmap.addParam": null,
             "dragmap.runDragmap.jobMemory": null,
@@ -572,7 +567,7 @@
         },
         "id": "PCSI0022C_trim_split_hg38_bam",
         "metadata": {
-            "dragmap.bwaMemBam": {
+            "dragmap.dragmapBam": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg38_bam_@JENKINSID@"
@@ -580,7 +575,7 @@
                 ],
                 "type": "ALL"
             },
-            "dragmap.bwaMemIndex": {
+            "dragmap.dragmapIndex": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg38_bam_@JENKINSID@"
@@ -628,7 +623,6 @@
             "dragmap.adapterTrimmingLog.jobMemory": null,
             "dragmap.adapterTrimmingLog.timeout": null,
             "dragmap.adapterTrimming.umiLength": null,
-            "dragmap.addReadGroups.readGroups": "'@RG\\tID:121005_h804_0096_AD0V4NACXX-NoIndex_6\\tLB:PCSI0022C\\tPL:ILLUMINA\\tPU:121005_h804_0096_AD0V4NACXX-NoIndex_6\\tSM:PCSI0022C'",
             "dragmap.addReadGroups.modules": null,
             "dragmap.addReadGroups.jobMemory": null,
             "dragmap.addReadGroups.timeout": null,
@@ -660,12 +654,12 @@
                 "type": "EXTERNAL"
             },
             "dragmap.fastqR2": null,
-            "dragmap.indexBam.jobMemory": null,
-            "dragmap.indexBam.modules": null,
-            "dragmap.indexBam.timeout": null,
             "dragmap.numChunk": 4,
             "dragmap.numReads": null,
-            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_PCSI0022C_NoIndex_L006_001",     
+            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_PCSI0022C_NoIndex_L006_001",  
+            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=PCSI0022C,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=PCSI0022C",   
+            "dragmap.readGroupCheck.jobMemory": null,
+            "dragmap.readGroupCheck.timeout": null,
             "dragmap.reference": "hg19",
             "dragmap.runDragmap.addParam": null,
             "dragmap.runDragmap.jobMemory": null,
@@ -684,7 +678,7 @@
         },
         "id": "PCSI0022C_trim_split_hg19_bam_se",
         "metadata": {
-            "dragmap.bwaMemBam": {
+            "dragmap.dragmapBam": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg19_bam_se_@JENKINSID@"
@@ -692,7 +686,7 @@
                 ],
                 "type": "ALL"
             },
-            "dragmap.bwaMemIndex": {
+            "dragmap.dragmapIndex": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg19_bam_se_@JENKINSID@"
@@ -740,7 +734,6 @@
             "dragmap.adapterTrimmingLog.jobMemory": null,
             "dragmap.adapterTrimmingLog.timeout": null,
             "dragmap.adapterTrimming.umiLength": null,
-            "dragmap.addReadGroups.readGroups": "'@RG\\tID:121005_h804_0096_AD0V4NACXX-NoIndex_6\\tLB:PCSI0022C\\tPL:ILLUMINA\\tPU:121005_h804_0096_AD0V4NACXX-NoIndex_6\\tSM:PCSI0022C'",
             "dragmap.addReadGroups.modules": null,
             "dragmap.addReadGroups.jobMemory": null,
             "dragmap.addReadGroups.timeout": null,
@@ -772,12 +765,12 @@
                 "type": "EXTERNAL"
             },
             "dragmap.fastqR2": null,
-            "dragmap.indexBam.jobMemory": null,
-            "dragmap.indexBam.modules": null,
-            "dragmap.indexBam.timeout": null,
             "dragmap.numChunk": null,
             "dragmap.numReads": null,
             "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_PCSI0022C_NoIndex_L006_001",
+            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=PCSI0022C,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=PCSI0022C",
+            "dragmap.readGroupCheck.jobMemory": null,
+            "dragmap.readGroupCheck.timeout": null,
             "dragmap.reference": "hg19",
             "dragmap.runDragmap.addParam": null,
             "dragmap.runDragmap.jobMemory": null,
@@ -796,7 +789,7 @@
         },
         "id": "PCSI0022C_trim_nosplit_hg19_bam_se",
         "metadata": {
-            "dragmap.bwaMemBam": {
+            "dragmap.dragmapBam": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_nosplit_hg19_bam_se_@JENKINSID@"
@@ -804,7 +797,7 @@
                 ],
                 "type": "ALL"
             },
-            "dragmap.bwaMemIndex": {
+            "dragmap.dragmapIndex": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_nosplit_hg19_bam_se_@JENKINSID@"
@@ -852,7 +845,6 @@
             "dragmap.adapterTrimmingLog.jobMemory": null,
             "dragmap.adapterTrimmingLog.timeout": null,
             "dragmap.adapterTrimming.umiLength": null,
-            "dragmap.addReadGroups.readGroups": "'@RG\\tID:121005_h804_0096_AD0V4NACXX-NoIndex_6\\tLB:PCSI0022C\\tPL:ILLUMINA\\tPU:121005_h804_0096_AD0V4NACXX-NoIndex_6\\tSM:PCSI0022C'",
             "dragmap.addReadGroups.modules": null,
             "dragmap.addReadGroups.jobMemory": null,
             "dragmap.addReadGroups.timeout": null,
@@ -884,12 +876,12 @@
                 "type": "EXTERNAL"
             },
             "dragmap.fastqR2": null,
-            "dragmap.indexBam.jobMemory": null,
-            "dragmap.indexBam.modules": null,
-            "dragmap.indexBam.timeout": null,
             "dragmap.numChunk": null,
             "dragmap.numReads": null,
             "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_PCSI0022C_NoIndex_L006_001",   
+            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=PCSI0022C,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=PCSI0022C",
+            "dragmap.readGroupCheck.jobMemory": null,
+            "dragmap.readGroupCheck.timeout": null,
             "dragmap.reference": "hg19",
             "dragmap.runDragmap.addParam": null,
             "dragmap.runDragmap.jobMemory": null,
@@ -908,7 +900,7 @@
         },
         "id": "PCSI0022C_notrim_nosplit_hg19_bam_se",
         "metadata": {
-            "dragmap.bwaMemBam": {
+            "dragmap.dragmapBam": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_notrim_nosplit_hg19_bam_se_@JENKINSID@"
@@ -916,7 +908,7 @@
                 ],
                 "type": "ALL"
             },
-            "dragmap.bwaMemIndex": {
+            "dragmap.dragmapIndex": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_notrim_nosplit_hg19_bam_se_@JENKINSID@"
@@ -964,7 +956,6 @@
             "dragmap.adapterTrimmingLog.jobMemory": null,
             "dragmap.adapterTrimmingLog.timeout": null,
             "dragmap.adapterTrimming.umiLength": null,
-            "dragmap.addReadGroups.readGroups": "'@RG\\tID:121005_h804_0096_AD0V4NACXX-NoIndex_6\\tLB:PCSI0022C\\tPL:ILLUMINA\\tPU:121005_h804_0096_AD0V4NACXX-NoIndex_6\\tSM:PCSI0022C'",
             "dragmap.addReadGroups.modules": null,
             "dragmap.addReadGroups.jobMemory": null,
             "dragmap.addReadGroups.timeout": null,
@@ -1007,12 +998,12 @@
                 },
                 "type": "EXTERNAL"
             },
-            "dragmap.indexBam.jobMemory": null,
-            "dragmap.indexBam.modules": null,
-            "dragmap.indexBam.timeout": null,
             "dragmap.numChunk": 4,
             "dragmap.numReads": null,
-            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_PCSI0022C_NoIndex_L006_001",      
+            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_PCSI0022C_NoIndex_L006_001",   
+            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=PCSI0022C,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=PCSI0022C",   
+            "dragmap.readGroupCheck.jobMemory": null,
+            "dragmap.readGroupCheck.timeout": null,
             "dragmap.reference": "hg19",
             "dragmap.runDragmap.addParam": null,
             "dragmap.runDragmap.jobMemory": null,
@@ -1031,7 +1022,7 @@
         },
         "id": "PCSI0022C_umi_adapter_trim_split_hg19_bam",
         "metadata": {
-            "dragmap.bwaMemBam": {
+            "dragmap.dragmapBam": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_umi_adapter_trim_split_hg19_bam_@JENKINSID@"
@@ -1039,7 +1030,7 @@
                 ],
                 "type": "ALL"
             },
-            "dragmap.bwaMemIndex": {
+            "dragmap.dragmapIndex": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_umi_adapter_trim_split_hg19_bam_@JENKINSID@"
@@ -1087,7 +1078,6 @@
             "dragmap.adapterTrimmingLog.jobMemory": null,
             "dragmap.adapterTrimmingLog.timeout": null,
             "dragmap.adapterTrimming.umiLength": null,
-            "dragmap.addReadGroups.readGroups": "'@RG\\tID:121005_h804_0096_AD0V4NACXX-NoIndex_6\\tLB:PCSI0022C\\tPL:ILLUMINA\\tPU:121005_h804_0096_AD0V4NACXX-NoIndex_6\\tSM:PCSI0022C'",
             "dragmap.addReadGroups.modules": null,
             "dragmap.addReadGroups.jobMemory": null,
             "dragmap.addReadGroups.timeout": null,
@@ -1130,12 +1120,12 @@
                 },
                 "type": "EXTERNAL"
             },
-            "dragmap.indexBam.jobMemory": null,
-            "dragmap.indexBam.modules": null,
-            "dragmap.indexBam.timeout": null,
             "dragmap.numChunk": 4,
             "dragmap.numReads": 3713,
-            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_PCSI0022C_NoIndex_L006_001",      
+            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_PCSI0022C_NoIndex_L006_001",   
+            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=PCSI0022C,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=PCSI0022C",   
+            "dragmap.readGroupCheck.jobMemory": null,
+            "dragmap.readGroupCheck.timeout": null,
             "dragmap.reference": "hg38",
             "dragmap.runDragmap.addParam": null,
             "dragmap.runDragmap.jobMemory": null,
@@ -1154,7 +1144,7 @@
         },
         "id": "PCSI0022C_trim_split_hg38_numRead_bam",
         "metadata": {
-            "dragmap.bwaMemBam": {
+            "dragmap.dragmapBam": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg38_numRead_bam_@JENKINSID@"
@@ -1162,7 +1152,7 @@
                 ],
                 "type": "ALL"
             },
-            "dragmap.bwaMemIndex": {
+            "dragmap.dragmapIndex": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg38_numRead_bam_@JENKINSID@"
@@ -1210,7 +1200,6 @@
             "dragmap.adapterTrimmingLog.jobMemory": null,
             "dragmap.adapterTrimmingLog.timeout": null,
             "dragmap.adapterTrimming.umiLength": null,
-            "dragmap.addReadGroups.readGroups": "'@RG\\tID:1\\tLB:neat_5x_EX_hg19_golden\\tPL:illumina\\tPU:run_barcode\\tSM:neat_5x_EX_hg19_golden'",
             "dragmap.addReadGroups.modules": null,
             "dragmap.addReadGroups.jobMemory": null,
             "dragmap.addReadGroups.timeout": null,
@@ -1253,12 +1242,12 @@
                 },
                 "type": "EXTERNAL"
             },
-            "dragmap.indexBam.jobMemory": null,
-            "dragmap.indexBam.modules": null,
-            "dragmap.indexBam.timeout": null,
             "dragmap.numChunk": null,
             "dragmap.numReads": null,
             "dragmap.outputFileNamePrefix": "neat_5x_EX_hg19_golden",
+            "dragmap.readGroups": "ID=1,LB=neat_5x_EX_hg19_golden,PL=illumina,PU=run_barcode,SM=neat_5x_EX_hg19_golden",
+            "dragmap.readGroupCheck.jobMemory": null,
+            "dragmap.readGroupCheck.timeout": null,
             "dragmap.reference": "hg19",
             "dragmap.runDragmap.addParam": null,
             "dragmap.runDragmap.jobMemory": null,
@@ -1277,7 +1266,7 @@
         },
         "id": "neat_5x_umi_extract_nosplit_hg19_bam",
         "metadata": {
-            "dragmap.bwaMemBam": {
+            "dragmap.dragmapBam": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_neat_5x_umi_extract_nosplit_hg19_bam_@JENKINSID@"
@@ -1285,7 +1274,7 @@
                 ],
                 "type": "ALL"
             },
-            "dragmap.bwaMemIndex": {
+            "dragmap.dragmapIndex": {
                 "contents": [
                     {
                         "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_neat_5x_umi_extract_nosplit_hg19_bam_@JENKINSID@"
@@ -1320,4 +1309,3 @@
         ]
     }
 ]
-

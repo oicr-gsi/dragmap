@@ -219,7 +219,7 @@ task readGroupCheck {
     input { 
         String readGroups 
         Int jobMemory = 1
-        Int timeout = 1 
+        Int timeout = 12
     } 
 
     parameter_meta { 
@@ -624,7 +624,7 @@ task addReadGroups {
         String readGroups
         String modules = "picard/3.1.0"
         Int jobMemory = 12
-        Int timeout = 5
+        Int timeout = 12
     }
 
     parameter_meta {

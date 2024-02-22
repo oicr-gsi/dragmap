@@ -188,7 +188,7 @@ Output | Type | Description
  ```
          mkdir -p ~{tmpDir}
  
-         samtools merge -O bam - ~{sep=" " bams} \
+         samtools merge -O bam - ~{sep=" " outputBams} \
          | \
          samtools sort -O bam -T ~{tmpDir} -o ~{resultMergedBam} - 
  ```
@@ -210,7 +210,7 @@ Output | Type | Description
  
          java -jar picard.jar AddOrReplaceReadGroups \
              CREATE_INDEX=true \
-             I= ~{outputBam} \
+             I= ~{mergedBam} \
              O= ~{resultReadGroupBam} \
              $( [[ -v fieldsArray["ID="] ]] && echo "RGID=${fieldsArray["ID="]}" || : ) \
              $( [[ -v fieldsArray["LB="] ]] && echo "RGLB=${fieldsArray["LB="]}" || : ) \

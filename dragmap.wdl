@@ -122,13 +122,13 @@ workflow dragmap {
 
         call bamMerge {
             input:
-            bams = runDragmap.outputBam,
+            outputBams = runDragmap.outputBam,
             outputFileNamePrefix = outputFileNamePrefix
         }
 
         call addReadGroups {
             input:
-            outputBam = bamMerge.outputMergedBam,
+            mergedBam = bamMerge.outputMergedBam,
             readGroups = readGroups
         }
 
@@ -571,7 +571,7 @@ task runDragmap {
 task bamMerge{
 
     input {
-        Array[File] bams
+        Array[File] outputBams
         String outputFileNamePrefix
         Int jobMemory = 32
         String modules = "samtools/1.9"
@@ -579,21 +579,21 @@ task bamMerge{
     }
 
     parameter_meta {
-        bams: "Input BAM files"
+        outputBams: "Input BAM files"
         outputFileNamePrefix: "Prefix for output file"
         jobMemory: "Memory allocated for the job"
         modules: "Required environment modules"
         timeout: "Hours until task timeout"    
     }
 
-    String resultMergedBam = "~{outputFileNamePrefix}.bam"
+    String resultMergedBam = "~{outputFileNamePrefix}_merged.bam"
     String tmpDir = "tmp/"
     
     command <<<
         set -euo pipefail
         mkdir -p ~{tmpDir}
 
-        samtools merge -O bam - ~{sep=" " bams} \
+        samtools merge -O bam - ~{sep=" " outputBams} \
         | \
         samtools sort -O bam -T ~{tmpDir} -o ~{resultMergedBam} - 
     >>>
@@ -620,7 +620,7 @@ task bamMerge{
 task addReadGroups {
 
     input {
-        File outputBam
+        File mergedBam
         String readGroups
         String modules = "picard/3.1.0"
         Int jobMemory = 12
@@ -628,16 +628,16 @@ task addReadGroups {
     }
 
     parameter_meta {
-        outputBam: "Output BAM file aligned to the appropriate genome. Does not have read-group information."
+        mergedBam: "Output BAM file aligned to the appropriate genome. Does not have read-group information."
         readGroups: "The read-group information to be added into the BAM file header"
         modules: "Required environment modules to run the task"
         jobMemory: "Memory allocated for the job"
         timeout: "Hours until task timeout"
     }
     
-    String fileNamePrefix = basename(outputBam, ".bam")
-    String resultReadGroupBam = "~{fileNamePrefix}_readgroup.bam"
-    String resultReadGroupBai = "~{fileNamePrefix}_readgroup.bai"
+    String fileNamePrefix = basename(mergedBam, ".bam")
+    String resultReadGroupBam = "~{fileNamePrefix}.bam"
+    String resultReadGroupBai = "~{fileNamePrefix}.bai"
 
     command <<<
         set -euo pipefail
@@ -656,7 +656,7 @@ task addReadGroups {
 
         java -jar $PICARD_ROOT/picard.jar AddOrReplaceReadGroups \
             CREATE_INDEX=true \
-            I= ~{outputBam} \
+            I= ~{mergedBam} \
             O= ~{resultReadGroupBam} \
             $( [[ -v fieldsArray["ID="] ]] && echo "RGID=${fieldsArray["ID="]}" || : ) \
             $( [[ -v fieldsArray["LB="] ]] && echo "RGLB=${fieldsArray["LB="]}" || : ) \

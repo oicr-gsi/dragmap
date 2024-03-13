@@ -1,4 +1,4 @@
-## 1.1.0 - 2024-03-13
+## 1.0.1 - 2024-03-13
 - Makes non-optional workflow outputs. This update fixes the Vidarr error resulting from all outputs being optional.
 ## 1.0.0 - 2024-02-09
 - Alignment completed using Dragmap version 1.2.1

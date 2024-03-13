@@ -96,8 +96,8 @@ Parameter|Value|Default|Description
 
 Output | Type | Description
 ---|---|---
-`dragmapBam`|File?|Merged BAM file aligned to genome with Dragmap
-`dragmapIndex`|File?|Output index file for the merged BAM file
+`dragmapBam`|File|Merged BAM file aligned to genome with Dragmap
+`dragmapIndex`|File|Output index file for the merged BAM file
 `log`|File?|A summary log file for adapter trimming
 `cutAdaptAllLogs`|File?|A file with the logs from the adapter trimming of each fastq chunk
 

@@ -56,90 +56,88 @@ workflow dragmap {
         readGroups = readGroups 
     }
 
-    if (readGroupCheck.validReadGroups) {
-        if (numChunk > 1) {
-            call countChunkSize {
+    if (numChunk > 1) {
+        call countChunkSize {
+            input:
+            fastqR1 = fastqR1,
+            numChunk = numChunk,
+            numReads = numReads
+        }
+    
+        call slicer as slicerR1 { 
+            input: 
+            fastqR = fastqR1,
+            chunkSize = countChunkSize.chunkSize
+        }
+        if (defined(fastqR2)) {
+            # workaround for converting File? to File
+            File fastqR2File = select_all([fastqR2])[0]
+            call slicer as slicerR2 {
                 input:
-                fastqR1 = fastqR1,
-                numChunk = numChunk,
-                numReads = numReads
-            }
-        
-            call slicer as slicerR1 { 
-                input: 
-                fastqR = fastqR1,
+                fastqR = fastqR2File,
                 chunkSize = countChunkSize.chunkSize
             }
-            if (defined(fastqR2)) {
-                # workaround for converting File? to File
-                File fastqR2File = select_all([fastqR2])[0]
-                call slicer as slicerR2 {
-                    input:
-                    fastqR = fastqR2File,
-                    chunkSize = countChunkSize.chunkSize
-                }
+        }
+    }
+
+    Array[File] fastq1 = select_first([slicerR1.chunkFastq, [fastqR1]])
+
+    if(defined(fastqR2)) {
+        Array[File?] fastq2 = select_first([slicerR2.chunkFastq, [fastqR2]])
+        Array[Pair[File,File?]] pairedFastqs = zip(fastq1,fastq2)
+    }
+
+    if(!defined(fastqR2)) {
+        Array[Pair[File,File?]] singleFastqs = cross(fastq1,[fastqR2])
+    }
+
+    Array[Pair[File,File?]] outputs = select_first([pairedFastqs, singleFastqs])
+
+    scatter (p in outputs) {
+        if (doUMIextract) {
+            call extractUMIs { 
+                input:
+                fastq1 = p.left,
+                fastq2 = p.right
             }
-        }
-
-        Array[File] fastq1 = select_first([slicerR1.chunkFastq, [fastqR1]])
-
-        if(defined(fastqR2)) {
-            Array[File?] fastq2 = select_first([slicerR2.chunkFastq, [fastqR2]])
-            Array[Pair[File,File?]] pairedFastqs = zip(fastq1,fastq2)
-        }
-
-        if(!defined(fastqR2)) {
-            Array[Pair[File,File?]] singleFastqs = cross(fastq1,[fastqR2])
-        }
-
-        Array[Pair[File,File?]] outputs = select_first([pairedFastqs, singleFastqs])
-
-        scatter (p in outputs) {
-            if (doUMIextract) {
-                call extractUMIs { 
-                    input:
-                    fastq1 = p.left,
-                    fastq2 = p.right
-                }
-            }
-
-            if (doTrim) {
-                call adapterTrimming { 
-                    input:
-                    fastqR1 = select_first([extractUMIs.fastqR1, p.left]),
-                    fastqR2 = if (defined(fastqR2)) then select_first([extractUMIs.fastqR2, p.right]) else fastqR2
-                }
-            }
-
-            call runDragmap { 
-                input: 
-                read1s = select_first([adapterTrimming.resultR1, extractUMIs.fastqR1, p.left]),
-                read2s = if (defined(fastqR2)) then select_first([adapterTrimming.resultR2, extractUMIs.fastqR2, p.right]) else fastqR2,
-                modules = dragmapModules,
-                dragmapHashTable = dragmapHashTable
-            }
-        }
-
-        call bamMerge {
-            input:
-            outputBams = runDragmap.outputBam,
-            outputFileNamePrefix = outputFileNamePrefix
-        }
-
-        call addReadGroups {
-            input:
-            mergedBam = bamMerge.outputMergedBam,
-            readGroups = readGroups
         }
 
         if (doTrim) {
-            call adapterTrimmingLog {
+            call adapterTrimming { 
                 input:
-                inputLogs = select_all(adapterTrimming.log),
-                outputFileNamePrefix = outputFileNamePrefix,
-                numChunk = numChunk,
-                singleEnded = if (defined(fastqR2)) then false else true
+                fastqR1 = select_first([extractUMIs.fastqR1, p.left]),
+                fastqR2 = if (defined(fastqR2)) then select_first([extractUMIs.fastqR2, p.right]) else fastqR2
             }
+        }
+
+        call runDragmap { 
+            input: 
+            read1s = select_first([adapterTrimming.resultR1, extractUMIs.fastqR1, p.left]),
+            read2s = if (defined(fastqR2)) then select_first([adapterTrimming.resultR2, extractUMIs.fastqR2, p.right]) else fastqR2,
+            modules = dragmapModules,
+            dragmapHashTable = dragmapHashTable
+        }
+    }
+
+    call bamMerge {
+        input:
+        outputBams = runDragmap.outputBam,
+        outputFileNamePrefix = outputFileNamePrefix
+    }
+
+    call addReadGroups {
+        input:
+        mergedBam = bamMerge.outputMergedBam,
+        readGroups = readGroups
+    }
+
+    if (doTrim) {
+        call adapterTrimmingLog {
+            input:
+            inputLogs = select_all(adapterTrimming.log),
+            outputFileNamePrefix = outputFileNamePrefix,
+            numChunk = numChunk,
+            singleEnded = if (defined(fastqR2)) then false else true
         }
     }
 
@@ -206,8 +204,8 @@ workflow dragmap {
     }
 
     output {
-        File? dragmapBam = addReadGroups.outputReadGroupBam
-        File? dragmapIndex = addReadGroups.outputReadGroupBai
+        File dragmapBam = addReadGroups.outputReadGroupBam
+        File dragmapIndex = addReadGroups.outputReadGroupBai
         File? log = adapterTrimmingLog.summaryLog
         File? cutAdaptAllLogs = adapterTrimmingLog.allLogs
     }
@@ -256,16 +254,6 @@ task readGroupCheck {
         memory: "~{jobMemory} GB" 
         timeout: "~{timeout}" 
     } 
-
-    output { 
-        Boolean validReadGroups = true
-    } 
-
-    meta { 
-        output_meta: { 
-            validReadGroups: "Boolean specifying if the read-group information is valid" 
-        } 
-    }  
 
 } 
 

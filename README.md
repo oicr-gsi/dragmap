@@ -6,15 +6,15 @@ This workflow aligns sequence data provided as fastq files using Dragmap (an ope
 
 ## Dependencies
 
-* [dragmap 1.2.1](https://github.com/Illumina/DRAGMAP/archive/refs/tags/1.2.1.tar.gz)
-* [samtools 1.9](https://github.com/samtools/samtools/archive/0.1.19.tar.gz)
+* [dragmap 1.3.1](https://github.com/Illumina/DRAGMAP/tree/c4cb6c94baaf6821db3fa696c53cdd809fb92304)
+* [samtools 1.14](https://github.com/samtools/samtools/archive/refs/tags/1.14.tar.gz)
 * [picard 3.1.0](https://github.com/broadinstitute/picard/archive/refs/tags/3.1.0.tar.gz)
 * [cutadapt 1.8.3](https://cutadapt.readthedocs.io/en/v1.8.3/)
 * [slicer 0.3.0](https://github.com/OpenGene/slicer/archive/v0.3.0.tar.gz)
 * [python 3.7](https://www.python.org)
 * [barcodex-rs 0.1.2](https://github.com/oicr-gsi/barcodex-rs/archive/v0.1.2.tar.gz)
 * [rust 1.2](https://www.rust-lang.org/tools/install)
-* [gsi software modules: samtools 1.9 dragmap 1.2.1](https://gitlab.oicr.on.ca/ResearchIT/modulator)
+* [gsi software modules: samtools 1.14 dragmap 1.2.1](https://gitlab.oicr.on.ca/ResearchIT/modulator)
 * [gsi hg38 modules: dragmap-hash-table-hg38 p12](https://gitlab.oicr.on.ca/ResearchIT/modulator)
 * [gsi hg19 modules: dragmap-hash-table-hg19 p13](https://gitlab.oicr.on.ca/ResearchIT/modulator)
 * [gsi mm10 modules: dragmap-hash-table-mm10 p6](https://gitlab.oicr.on.ca/ResearchIT/modulator)
@@ -83,7 +83,7 @@ Parameter|Value|Default|Description
 `runDragmap.jobMemory`|Int|50|Memory allocated for the job
 `runDragmap.timeout`|Int|96|Hours until task timeout
 `bamMerge.jobMemory`|Int|32|Memory allocated for the job
-`bamMerge.modules`|String|"samtools/1.9"|Required environment modules
+`bamMerge.modules`|String|"samtools/1.14"|Required environment modules
 `bamMerge.timeout`|Int|72|Hours until task timeout
 `addReadGroups.modules`|String|"picard/3.1.0"|Required environment modules to run the task
 `addReadGroups.jobMemory`|Int|12|Memory allocated for the job

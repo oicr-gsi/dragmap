@@ -34,15 +34,15 @@ workflow dragmap {
 
     Map[String,dragmapResources] resourceByGenome = { 
         "hg19": {
-            "modules": "samtools/1.14 dragmap/1.3.1 dragmap-hash-table-hg19/p13", 
+            "modules": "samtools/1.14 dragmap-hash-table-hg19/p13", 
             "hashTable": "$DRAGMAP_HASH_TABLE_HG19_ROOT/hg19"
         },
         "hg38": {
-            "modules": "samtools/1.14 dragmap/1.3.1 dragmap-hash-table-hg38/p12", 
+            "modules": "samtools/1.14 dragmap-hash-table-hg38/p12", 
             "hashTable": "$DRAGMAP_HASH_TABLE_HG38_ROOT/hg38"
         },
         "mm10": {
-            "modules": "samtools/1.14 dragmap/1.3.1 dragmap-hash-table-mm10/p6", 
+            "modules": "samtools/1.14 dragmap-hash-table-mm10/p6", 
             "hashTable": "$DRAGMAP_HASH_TABLE_MM10_ROOT/mm10"
         }
     }
@@ -530,7 +530,7 @@ task runDragmap {
 
         export LD_LIBRARY_PATH=$BOOST_ROOT/lib 
 
-        dragen-os \
+        /.mounts/labs/gsiprojects/gsi/gsiusers/mmohamed/dragmap_test/NEW_dragmap/DRAGMAP/build/release/dragen-os \
             -r ~{dragmapHashTable} \
             -1 ~{read1s} \
             ~{if (defined(read2s)) then "-2 ~{read2s}" else ""} \

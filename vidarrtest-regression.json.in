@@ -116,7 +116,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.0.0/output_metrics/PCSI0022C_notrim_nosplit_bam.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.1.0/output_metrics/PCSI0022C_notrim_nosplit_bam.metrics",
                 "type": "script"
             }
         ]
@@ -238,7 +238,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.0.0/output_metrics/PCSI0022C_trim_nosplit_bam.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.1.0/output_metrics/PCSI0022C_trim_nosplit_bam.metrics",
                 "type": "script"
             }
         ]
@@ -360,7 +360,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.0.0/output_metrics/PCSI0022C_trim_split_hg19_bam.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.1.0/output_metrics/PCSI0022C_trim_split_hg19_bam.metrics",
                 "type": "script"
             }
         ]
@@ -482,7 +482,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.0.0/output_metrics/PCSI0022C_notrim_split_hg19_bam.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.1.0/output_metrics/PCSI0022C_notrim_split_hg19_bam.metrics",
                 "type": "script"
             }
         ]
@@ -604,7 +604,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.0.0/output_metrics/PCSI0022C_trim_split_hg38_bam.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.1.0/output_metrics/PCSI0022C_trim_split_hg38_bam.metrics",
                 "type": "script"
             }
         ]
@@ -715,7 +715,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.0.0/output_metrics/PCSI0022C_trim_split_hg19_bam_se.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.1.0/output_metrics/PCSI0022C_trim_split_hg19_bam_se.metrics",
                 "type": "script"
             }
         ]
@@ -826,7 +826,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.0.0/output_metrics/PCSI0022C_trim_nosplit_hg19_bam_se.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.1.0/output_metrics/PCSI0022C_trim_nosplit_hg19_bam_se.metrics",
                 "type": "script"
             }
         ]
@@ -937,7 +937,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.0.0/output_metrics/PCSI0022C_notrim_nosplit_hg19_bam_se.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.1.0/output_metrics/PCSI0022C_notrim_nosplit_hg19_bam_se.metrics",
                 "type": "script"
             }
         ]
@@ -1059,7 +1059,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.0.0/output_metrics/PCSI0022C_umi_adapter_trim_split_hg19_bam.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.1.0/output_metrics/PCSI0022C_umi_adapter_trim_split_hg19_bam.metrics",
                 "type": "script"
             }
         ]
@@ -1181,7 +1181,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.0.0/output_metrics/PCSI0022C_trim_split_hg38_numRead_bam.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.1.0/output_metrics/PCSI0022C_trim_split_hg38_numRead_bam.metrics",
                 "type": "script"
             }
         ]
@@ -1303,7 +1303,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.0.0/output_metrics/neat_5x_umi_extract_nosplit_hg19_bam.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.1.0/output_metrics/neat_5x_umi_extract_nosplit_hg19_bam.metrics",
                 "type": "script"
             }
         ]

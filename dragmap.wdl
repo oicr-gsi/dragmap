@@ -34,15 +34,15 @@ workflow dragmap {
 
     Map[String,dragmapResources] resourceByGenome = { 
         "hg19": {
-            "modules": "samtools/1.9 dragmap/1.2.1 dragmap-hash-table-hg19/p13", 
+            "modules": "samtools/1.14 dragmap/1.3.1 boost/1.69 dragmap-hash-table-hg19/p13", 
             "hashTable": "$DRAGMAP_HASH_TABLE_HG19_ROOT/hg19"
         },
         "hg38": {
-            "modules": "samtools/1.9 dragmap/1.2.1 dragmap-hash-table-hg38/p12", 
+            "modules": "samtools/1.14 dragmap/1.3.1 boost/1.69 dragmap-hash-table-hg38/p12", 
             "hashTable": "$DRAGMAP_HASH_TABLE_HG38_ROOT/hg38"
         },
         "mm10": {
-            "modules": "samtools/1.9 dragmap/1.2.1 dragmap-hash-table-mm10/p6", 
+            "modules": "samtools/1.14 dragmap/1.3.1 boost/1.69 dragmap-hash-table-mm10/p6", 
             "hashTable": "$DRAGMAP_HASH_TABLE_MM10_ROOT/mm10"
         }
     }
@@ -147,12 +147,16 @@ workflow dragmap {
         description: "This workflow aligns sequence data provided as fastq files using Dragmap (an open source Dragen mapper/aligner). The alignment is completed using a hash table of a reference genome. The workflow borrows functions from the bwaMem workflow, to provide options to remove 5' umi sequences and trim off 3' sequencing adapters prior to alignment. Using these functions, this workflow can also split the input data into a requested number of chunks, align each separately then merge the separate alignments into a single BAM file to decrease workflow runtime. Read-group information must be provided."
         dependencies: [
             {
-                name: "dragmap/1.2.1",
-                url: "https://github.com/Illumina/DRAGMAP/archive/refs/tags/1.2.1.tar.gz"
+                name: "dragmap/1.3.1",
+                url: "https://github.com/Illumina/DRAGMAP/tree/c4cb6c94baaf6821db3fa696c53cdd809fb92304"
             },
             {
-                name: "samtools/1.9",
-                url: "https://github.com/samtools/samtools/archive/0.1.19.tar.gz"
+                name: "boost/1.69",
+                url: "https://boostorg.jfrog.io/artifactory/main/release/1.69.0/source/boost_1_69_0.tar.gz"
+            },
+            {
+                name: "samtools/1.14",
+                url: "https://github.com/samtools/samtools/archive/refs/tags/1.14.tar.gz"
             },
             {
                 name: "picard/3.1.0",
@@ -179,7 +183,7 @@ workflow dragmap {
                 url: "https://www.rust-lang.org/tools/install"
             },
             { 
-                name: "gsi software modules: samtools/1.9 dragmap/1.2.1",
+                name: "gsi software modules: samtools/1.14 dragmap/1.3.1 boost/1.69",
                 url: "https://gitlab.oicr.on.ca/ResearchIT/modulator"
             },
             { 
@@ -528,6 +532,8 @@ task runDragmap {
     command <<<
         set -euo pipefail
 
+        export LD_LIBRARY_PATH=$BOOST_ROOT/lib 
+
         dragen-os \
             -r ~{dragmapHashTable} \
             -1 ~{read1s} \
@@ -562,7 +568,7 @@ task bamMerge{
         Array[File] outputBams
         String outputFileNamePrefix
         Int jobMemory = 32
-        String modules = "samtools/1.9"
+        String modules = "samtools/1.14"
         Int timeout = 72
     }
 

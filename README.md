@@ -14,7 +14,7 @@ This workflow aligns sequence data provided as fastq files using Dragmap (an ope
 * [python 3.7](https://www.python.org)
 * [barcodex-rs 0.1.2](https://github.com/oicr-gsi/barcodex-rs/archive/v0.1.2.tar.gz)
 * [rust 1.2](https://www.rust-lang.org/tools/install)
-* [gsi software modules: samtools 1.14 dragmap 1.2.1](https://gitlab.oicr.on.ca/ResearchIT/modulator)
+* [gsi software modules: samtools 1.14 dragmap 1.3.1](https://gitlab.oicr.on.ca/ResearchIT/modulator)
 * [gsi hg38 modules: dragmap-hash-table-hg38 p12](https://gitlab.oicr.on.ca/ResearchIT/modulator)
 * [gsi hg19 modules: dragmap-hash-table-hg19 p13](https://gitlab.oicr.on.ca/ResearchIT/modulator)
 * [gsi mm10 modules: dragmap-hash-table-mm10 p6](https://gitlab.oicr.on.ca/ResearchIT/modulator)

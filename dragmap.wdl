@@ -179,7 +179,7 @@ workflow dragmap {
                 url: "https://www.rust-lang.org/tools/install"
             },
             { 
-                name: "gsi software modules: samtools/1.14 dragmap/1.2.1",
+                name: "gsi software modules: samtools/1.14 dragmap/1.3.1",
                 url: "https://gitlab.oicr.on.ca/ResearchIT/modulator"
             },
             { 

@@ -34,15 +34,15 @@ workflow dragmap {
 
     Map[String,dragmapResources] resourceByGenome = { 
         "hg19": {
-            "modules": "samtools/1.14 dragmap-hash-table-hg19/p13", 
+            "modules": "samtools/1.14 boost/1.69 dragmap-hash-table-hg19/p13", 
             "hashTable": "$DRAGMAP_HASH_TABLE_HG19_ROOT/hg19"
         },
         "hg38": {
-            "modules": "samtools/1.14 dragmap-hash-table-hg38/p12", 
+            "modules": "samtools/1.14 boost/1.69 dragmap-hash-table-hg38/p12", 
             "hashTable": "$DRAGMAP_HASH_TABLE_HG38_ROOT/hg38"
         },
         "mm10": {
-            "modules": "samtools/1.14 dragmap-hash-table-mm10/p6", 
+            "modules": "samtools/1.14 boost/1.69 dragmap-hash-table-mm10/p6", 
             "hashTable": "$DRAGMAP_HASH_TABLE_MM10_ROOT/mm10"
         }
     }

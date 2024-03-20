@@ -34,15 +34,15 @@ workflow dragmap {
 
     Map[String,dragmapResources] resourceByGenome = { 
         "hg19": {
-            "modules": "samtools/1.14 dragmap/1.3.1 dragmap-hash-table-hg19/p13", 
+            "modules": "samtools/1.14 dragmap/1.3.1 boost/1.69 dragmap-hash-table-hg19/p13", 
             "hashTable": "$DRAGMAP_HASH_TABLE_HG19_ROOT/hg19"
         },
         "hg38": {
-            "modules": "samtools/1.14 dragmap/1.3.1 dragmap-hash-table-hg38/p12", 
+            "modules": "samtools/1.14 dragmap/1.3.1 boost/1.69 dragmap-hash-table-hg38/p12", 
             "hashTable": "$DRAGMAP_HASH_TABLE_HG38_ROOT/hg38"
         },
         "mm10": {
-            "modules": "samtools/1.14 dragmap/1.3.1 dragmap-hash-table-mm10/p6", 
+            "modules": "samtools/1.14 dragmap/1.3.1 boost/1.69 dragmap-hash-table-mm10/p6", 
             "hashTable": "$DRAGMAP_HASH_TABLE_MM10_ROOT/mm10"
         }
     }
@@ -151,6 +151,10 @@ workflow dragmap {
                 url: "https://github.com/Illumina/DRAGMAP/tree/c4cb6c94baaf6821db3fa696c53cdd809fb92304"
             },
             {
+                name: "boost/1.69",
+                url: "https://boostorg.jfrog.io/artifactory/main/release/1.69.0/source/boost_1_69_0.tar.gz"
+            },
+            {
                 name: "samtools/1.14",
                 url: "https://github.com/samtools/samtools/archive/refs/tags/1.14.tar.gz"
             },
@@ -179,7 +183,7 @@ workflow dragmap {
                 url: "https://www.rust-lang.org/tools/install"
             },
             { 
-                name: "gsi software modules: samtools/1.14 dragmap/1.3.1",
+                name: "gsi software modules: samtools/1.14 dragmap/1.3.1 boost/1.69",
                 url: "https://gitlab.oicr.on.ca/ResearchIT/modulator"
             },
             { 

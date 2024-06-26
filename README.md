@@ -95,22 +95,22 @@ Parameter|Value|Default|Description
 
 ### Outputs
 
-Output | Type | Description
----|---|---
-`dragmapBam`|File|Merged BAM file aligned to genome with Dragmap
-`dragmapIndex`|File|Output index file for the merged BAM file
-`log`|File?|A summary log file for adapter trimming
-`cutAdaptAllLogs`|File?|A file with the logs from the adapter trimming of each fastq chunk
+Output | Type | Description | Labels
+---|---|---|---
+`dragmapBam`|File|Merged BAM file aligned to genome with Dragmap|vidarr_label: dragmapBam
+`dragmapIndex`|File|Output index file for the merged BAM file|vidarr_label: dragmapIndex
+`log`|File?|A summary log file for adapter trimming|vidarr_label: log
+`cutAdaptAllLogs`|File?|A file with the logs from the adapter trimming of each fastq chunk|vidarr_label: cutAdaptAllLogs
 
 
 ## Commands
- This section lists command(s) run by dragmap workflow
+This section lists command(s) run by dragmap workflow
  
- * Running dragmap
+* Running dragmap
  
- === Ensures the read-group information is valid, and in the correct format prior to running the rest of the workflow ===.
+### Ensures the read-group information is valid, and in the correct format prior to running the rest of the workflow.
  
- ```
+```
          fieldNames=("ID=" "LB=" "PL=" "PU=" "SM=" "CN=" "DS=" "DT=" "FO=" "KS=" "PG=" "PI=" "PM=") 
          
          # Split the string into an array 
@@ -130,11 +130,11 @@ Output | Type | Description
                  exit 1
              fi
          done 
- ```
+```
  
- === Parallelizes the alignment by splitting the fastq files into chunks. Subsequent steps will be run on the fastq chunks (Optional) ===.
+### Parallelizes the alignment by splitting the fastq files into chunks. Subsequent steps will be run on the fastq chunks (Optional).
  
- ```
+```
          if [ -z "~{numReads}" ]; then
              totalLines=$(zcat ~{fastqR1} | wc -l)
          else totalLines=$((~{numReads}*4))
@@ -142,11 +142,11 @@ Output | Type | Description
          
          python3 -c "from math import ceil; print (int(ceil(($totalLines/4.0)/~{numChunk})*4))"
          slicer -i ~{fastqR} -l ~{chunkSize} --gzip 
- ```
+```
  
- === Trims off the UMI bases (Optional) ===.
+### Trims off the UMI bases (Optional).
  
- ```
+```
          barcodex-rs --umilist ~{umiList} --prefix ~{outputPrefix} --separator "__" inline \
          --pattern1 '~{pattern1}' --r1-in ~{fastq1} \
          ~{if (defined(fastq2)) then "--pattern2 '~{pattern2}' --r2-in ~{fastq2} " else ""}
@@ -156,11 +156,11 @@ Output | Type | Description
          tr [,] ',\n' < umiCounts.txt | sed 's/[{}]//' > tmp.txt
          echo "{$(sort -i tmp.txt)}" > new.txt
          tr '\n' ',' < new.txt | sed 's/,$//' > ~{outputPrefix}_UMI_counts.json
- ```
+```
  
- === Trims off adapter sequence (Optional) ===.
+### Trims off adapter sequence (Optional).
  
- ```
+```
          cutadapt -q ~{trimMinQuality} \
                  -m ~{trimMinLength} \
                  -a ~{adapter1} \
@@ -170,11 +170,11 @@ Output | Type | Description
                  ~{addParam} \
                  ~{fastqR1} \
                  ~{fastqR2} > ~{resultLog}
- ```
+```
  
- === Align to reference using Dragmap ===.
+### Align to reference using Dragmap.
  
- ```
+```
          dragen-os \
              -r ~{dragmapHashTable} \
              -1 ~{read1s} \
@@ -182,21 +182,21 @@ Output | Type | Description
              ~{addParam} \
          | \
          samtools view -b -o ~{resultBam} -
- ```
+```
  
- === Merge parallelized alignments (if the fastq was split) and sort the BAM file ===.
+### Merge parallelized alignments (if the fastq was split) and sort the BAM file.
  
- ```
+```
          mkdir -p ~{tmpDir}
  
          samtools merge -O bam - ~{sep=" " outputBams} \
          | \
          samtools sort -O bam -T ~{tmpDir} -o ~{resultMergedBam} - 
- ```
+```
  
- === Assigns read-groups and index BAM file ===.
+### Assigns read-groups and index BAM file.
  
- ```
+```
          # An array containing potential read-group fields
          fieldNames=("ID=" "LB=" "PL=" "PU=" "SM=" "CN=" "DS=" "DT=" "FO=" "KS=" "PG=" "PI=" "PM=")
  
@@ -226,14 +226,14 @@ Output | Type | Description
              $( [[ -v fieldsArray["PG="] ]] && echo "RGPG=${fieldsArray["PG="]}" || : ) \
              $( [[ -v fieldsArray["PI="] ]] && echo "RGPI=${fieldsArray["PI="]}" || : ) \
              $( [[ -v fieldsArray["PM="] ]] && echo "RGPM=${fieldsArray["PM="]}" || : )
- ```
+```
  
- === Merges parallelized adapter trimming logs ===.
+### Merges parallelized adapter trimming logs.
  
- ```
+```
          COMMANDS NOT SHOWN, see WDL for details
- ```
- ## Support
+```
+## Support
 
 For support, please file an issue on the [Github project](https://github.com/oicr-gsi) or send an email to gsi@oicr.on.ca .
 

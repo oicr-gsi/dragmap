@@ -199,12 +199,24 @@ workflow dragmap {
                 url: "https://gitlab.oicr.on.ca/ResearchIT/modulator"
             }
         ]
-        output_meta: {
-            dragmapBam: "Merged BAM file aligned to genome with Dragmap",
-            dragmapIndex: "Output index file for the merged BAM file",
-            log: "A summary log file for adapter trimming",
-            cutAdaptAllLogs: "A file with the logs from the adapter trimming of each fastq chunk"
-        }
+    output_meta: {
+    dragmapBam: {
+        description: "Merged BAM file aligned to genome with Dragmap",
+        vidarr_label: "dragmapBam"
+    },
+    dragmapIndex: {
+        description: "Output index file for the merged BAM file",
+        vidarr_label: "dragmapIndex"
+    },
+    log: {
+        description: "A summary log file for adapter trimming",
+        vidarr_label: "log"
+    },
+    cutAdaptAllLogs: {
+        description: "A file with the logs from the adapter trimming of each fastq chunk",
+        vidarr_label: "cutAdaptAllLogs"
+    }
+}
     }
 
     output {

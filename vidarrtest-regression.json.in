@@ -33,7 +33,7 @@
             "dragmap.extractUMIs.umiList": null,
             "dragmap.fastqR1": {
                 "contents": {
-                    "configuration": "/.mounts/labs/gsi/testdata/dragmap/input_data/PCSI0022C.val.1.fastq.gz",
+                    "configuration": "/.mounts/labs/gsi/testdata/dragMap/test_inputs/Test.val.1.fastq.gz",
                     "externalIds": [
                         {
                             "id": "TEST",
@@ -45,7 +45,7 @@
             },
             "dragmap.fastqR2": {
                 "contents": {
-                    "configuration": "/.mounts/labs/gsi/testdata/dragmap/input_data/PCSI0022C.val.2.fastq.gz",
+                    "configuration": "/.mounts/labs/gsi/testdata/dragMap/test_inputs/Test.val.2.fastq.gz",
                     "externalIds": [
                         {
                             "id": "TEST",
@@ -57,8 +57,8 @@
             },
             "dragmap.numChunk": null,
             "dragmap.numReads": null,
-            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_PCSI0022C_NoIndex_L006_001",
-            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=PCSI0022C,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=PCSI0022C",
+            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_Test_NoIndex_L006_001",
+            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=Test,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=Test",
             "dragmap.readGroupCheck.jobMemory": null,
             "dragmap.readGroupCheck.timeout": null,
             "dragmap.reference": "hg19",
@@ -72,17 +72,17 @@
             "dragmap.slicerR2.modules": null,
             "dragmap.slicerR2.timeout": null
         },
-        "description": "Runs the small PCSI_0022 C data without trimming, without splitting, and outputs as BAM.",
+        "description": "Runs the small data without trimming, without splitting, and outputs as BAM.",
         "engineArguments": {
             "write_to_cache": false,
             "read_from_cache": false
         },
-        "id": "PCSI0022C_notrim_nosplit_bam",
+        "id": "Test_notrim_nosplit_bam",
         "metadata": {
             "dragmap.dragmapBam": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_notrim_nosplit_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_notrim_nosplit_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -90,7 +90,7 @@
             "dragmap.dragmapIndex": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_notrim_nosplit_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_notrim_nosplit_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -98,7 +98,7 @@
             "dragmap.cutAdaptAllLogs": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_notrim_nosplit_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_notrim_nosplit_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -106,7 +106,7 @@
             "dragmap.log": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_notrim_nosplit_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_notrim_nosplit_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -116,7 +116,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.1.0/output_metrics/PCSI0022C_notrim_nosplit_bam.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/dragMap/output_metrics/workflow_test_01.metrics",
                 "type": "script"
             }
         ]
@@ -155,7 +155,7 @@
             "dragmap.extractUMIs.umiList": null,
             "dragmap.fastqR1": {
                 "contents": {
-                    "configuration": "/.mounts/labs/gsi/testdata/dragmap/input_data/PCSI0022C.val.1.fastq.gz",
+                    "configuration": "/.mounts/labs/gsi/testdata/dragMap/test_inputs/Test.val.1.fastq.gz",
                     "externalIds": [
                         {
                             "id": "TEST",
@@ -167,7 +167,7 @@
             },
             "dragmap.fastqR2": {
                 "contents": {
-                    "configuration": "/.mounts/labs/gsi/testdata/dragmap/input_data/PCSI0022C.val.2.fastq.gz",
+                    "configuration": "/.mounts/labs/gsi/testdata/dragMap/test_inputs/Test.val.2.fastq.gz",
                     "externalIds": [
                         {
                             "id": "TEST",
@@ -179,8 +179,8 @@
             },
             "dragmap.numChunk": null,
             "dragmap.numReads": null,
-            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_PCSI0022C_NoIndex_L006_001",
-            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=PCSI0022C,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=PCSI0022C",
+            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_Test_NoIndex_L006_001",
+            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=Test,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=Test",
             "dragmap.readGroupCheck.jobMemory": null,
             "dragmap.readGroupCheck.timeout": null,
             "dragmap.reference": "hg19",
@@ -194,17 +194,17 @@
             "dragmap.slicerR2.modules": null,
             "dragmap.slicerR2.timeout": null
         },
-        "description": "Runs the small PCSI_0022 C data with trimming, without splitting, and outputs as BAM.",
+        "description": "Runs the small data with trimming, without splitting, and outputs as BAM.",
         "engineArguments": {
             "write_to_cache": false,
             "read_from_cache": false
         },
-        "id": "PCSI0022C_trim_nosplit_bam",
+        "id": "Test_trim_nosplit_bam",
         "metadata": {
             "dragmap.dragmapBam": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_nosplit_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_trim_nosplit_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -212,7 +212,7 @@
             "dragmap.dragmapIndex": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_nosplit_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_trim_nosplit_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -220,7 +220,7 @@
             "dragmap.cutAdaptAllLogs": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_nosplit_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_trim_nosplit_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -228,7 +228,7 @@
             "dragmap.log": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_nosplit_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_trim_nosplit_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -238,7 +238,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.1.0/output_metrics/PCSI0022C_trim_nosplit_bam.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/dragMap/output_metrics/workflow_test_02.metrics",
                 "type": "script"
             }
         ]
@@ -277,7 +277,7 @@
             "dragmap.extractUMIs.umiList": null,
             "dragmap.fastqR1": {
                 "contents": {
-                    "configuration": "/.mounts/labs/gsi/testdata/dragmap/input_data/PCSI0022C.val.1.fastq.gz",
+                    "configuration": "/.mounts/labs/gsi/testdata/dragMap/test_inputs/Test.val.1.fastq.gz",
                     "externalIds": [
                         {
                             "id": "TEST",
@@ -289,7 +289,7 @@
             },
             "dragmap.fastqR2": {
                 "contents": {
-                    "configuration": "/.mounts/labs/gsi/testdata/dragmap/input_data/PCSI0022C.val.2.fastq.gz",
+                    "configuration": "/.mounts/labs/gsi/testdata/dragMap/test_inputs/Test.val.2.fastq.gz",
                     "externalIds": [
                         {
                             "id": "TEST",
@@ -301,8 +301,8 @@
             },
             "dragmap.numChunk": 4,
             "dragmap.numReads": null,
-            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_PCSI0022C_NoIndex_L006_001",
-            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=PCSI0022C,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=PCSI0022C",
+            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_Test_NoIndex_L006_001",
+            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=Test,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=Test",
             "dragmap.readGroupCheck.jobMemory": null,
             "dragmap.readGroupCheck.timeout": null,
             "dragmap.reference": "hg19",
@@ -316,17 +316,17 @@
             "dragmap.slicerR2.modules": null,
             "dragmap.slicerR2.timeout": null
         },
-        "description": "Runs the small PCSI_0022 C data with trimming, with splitting, and outputs as BAM.",
+        "description": "Runs the small data with trimming, with splitting, and outputs as BAM.",
         "engineArguments": {
             "write_to_cache": false,
             "read_from_cache": false
         },
-        "id": "PCSI0022C_trim_split_hg19_bam",
+        "id": "Test_trim_split_hg19_bam",
         "metadata": {
             "dragmap.dragmapBam": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg19_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_trim_split_hg19_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -334,7 +334,7 @@
             "dragmap.dragmapIndex": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg19_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_trim_split_hg19_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -342,7 +342,7 @@
             "dragmap.cutAdaptAllLogs": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg19_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_trim_split_hg19_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -350,7 +350,7 @@
             "dragmap.log": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg19_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_trim_split_hg19_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -360,7 +360,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.1.0/output_metrics/PCSI0022C_trim_split_hg19_bam.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/dragMap/output_metrics/workflow_test_03.metrics",
                 "type": "script"
             }
         ]
@@ -399,7 +399,7 @@
             "dragmap.extractUMIs.umiList": null,
             "dragmap.fastqR1": {
                 "contents": {
-                    "configuration": "/.mounts/labs/gsi/testdata/dragmap/input_data/PCSI0022C.val.1.fastq.gz",
+                    "configuration": "/.mounts/labs/gsi/testdata/dragMap/test_inputs/Test.val.1.fastq.gz",
                     "externalIds": [
                         {
                             "id": "TEST",
@@ -411,7 +411,7 @@
             },
             "dragmap.fastqR2": {
                 "contents": {
-                    "configuration": "/.mounts/labs/gsi/testdata/dragmap/input_data/PCSI0022C.val.2.fastq.gz",
+                    "configuration": "/.mounts/labs/gsi/testdata/dragMap/test_inputs/Test.val.2.fastq.gz",
                     "externalIds": [
                         {
                             "id": "TEST",
@@ -423,8 +423,8 @@
             },
             "dragmap.numChunk": 4,
             "dragmap.numReads": null,
-            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_PCSI0022C_NoIndex_L006_001",
-            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=PCSI0022C,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=PCSI0022C",
+            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_Test_NoIndex_L006_001",
+            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=Test,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=Test",
             "dragmap.readGroupCheck.jobMemory": null,
             "dragmap.readGroupCheck.timeout": null,
             "dragmap.reference": "hg19",
@@ -438,17 +438,17 @@
             "dragmap.slicerR2.modules": null,
             "dragmap.slicerR2.timeout": null
         },
-        "description": "Runs the small PCSI_0022 C data without trimming, with splitting, and outputs as BAM.",
+        "description": "Runs the small data without trimming, with splitting, and outputs as BAM.",
         "engineArguments": {
             "write_to_cache": false,
             "read_from_cache": false
         },
-        "id": "PCSI0022C_notrim_split_hg19_bam",
+        "id": "Test_notrim_split_hg19_bam",
         "metadata": {
             "dragmap.dragmapBam": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_notrim_split_hg19_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_notrim_split_hg19_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -456,7 +456,7 @@
             "dragmap.dragmapIndex": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_notrim_split_hg19_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_notrim_split_hg19_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -464,7 +464,7 @@
             "dragmap.cutAdaptAllLogs": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_notrim_split_hg19_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_notrim_split_hg19_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -472,7 +472,7 @@
             "dragmap.log": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_notrim_split_hg19_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_notrim_split_hg19_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -482,7 +482,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.1.0/output_metrics/PCSI0022C_notrim_split_hg19_bam.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/dragMap/output_metrics/workflow_test_04.metrics",
                 "type": "script"
             }
         ]
@@ -521,7 +521,7 @@
             "dragmap.extractUMIs.umiList": null,
             "dragmap.fastqR1": {
                 "contents": {
-                    "configuration": "/.mounts/labs/gsi/testdata/dragmap/input_data/PCSI0022C.val.1.fastq.gz",
+                    "configuration": "/.mounts/labs/gsi/testdata/dragMap/test_inputs/Test.val.1.fastq.gz",
                     "externalIds": [
                         {
                             "id": "TEST",
@@ -533,7 +533,7 @@
             },
             "dragmap.fastqR2": {
                 "contents": {
-                    "configuration": "/.mounts/labs/gsi/testdata/dragmap/input_data/PCSI0022C.val.2.fastq.gz",
+                    "configuration": "/.mounts/labs/gsi/testdata/dragMap/test_inputs/Test.val.2.fastq.gz",
                     "externalIds": [
                         {
                             "id": "TEST",
@@ -545,8 +545,8 @@
             },
             "dragmap.numChunk": 4,
             "dragmap.numReads": null,
-            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_PCSI0022C_NoIndex_L006_001",  
-            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=PCSI0022C,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=PCSI0022C",    
+            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_Test_NoIndex_L006_001",  
+            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=Test,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=Test",    
             "dragmap.readGroupCheck.jobMemory": null,
             "dragmap.readGroupCheck.timeout": null,
             "dragmap.reference": "hg38",
@@ -560,17 +560,17 @@
             "dragmap.slicerR2.modules": null,
             "dragmap.slicerR2.timeout": null
         },
-        "description": "Runs the small PCSI_0022 C data with trimming, with splitting, with hg38, and outputs as BAM.",
+        "description": "Runs the small data with trimming, with splitting, with hg38, and outputs as BAM.",
         "engineArguments": {
             "write_to_cache": false,
             "read_from_cache": false
         },
-        "id": "PCSI0022C_trim_split_hg38_bam",
+        "id": "Test_trim_split_hg38_bam",
         "metadata": {
             "dragmap.dragmapBam": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg38_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_trim_split_hg38_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -578,7 +578,7 @@
             "dragmap.dragmapIndex": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg38_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_trim_split_hg38_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -586,7 +586,7 @@
             "dragmap.cutAdaptAllLogs": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg38_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_trim_split_hg38_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -594,7 +594,7 @@
             "dragmap.log": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg38_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_trim_split_hg38_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -604,7 +604,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.1.0/output_metrics/PCSI0022C_trim_split_hg38_bam.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/dragMap/output_metrics/workflow_test_05.metrics",
                 "type": "script"
             }
         ]
@@ -643,7 +643,7 @@
             "dragmap.extractUMIs.umiList": null,
             "dragmap.fastqR1": {
                 "contents": {
-                    "configuration": "/.mounts/labs/gsi/testdata/dragmap/input_data/PCSI0022C.val.1.fastq.gz",
+                    "configuration": "/.mounts/labs/gsi/testdata/dragMap/test_inputs/Test.val.1.fastq.gz",
                     "externalIds": [
                         {
                             "id": "TEST",
@@ -656,8 +656,8 @@
             "dragmap.fastqR2": null,
             "dragmap.numChunk": 4,
             "dragmap.numReads": null,
-            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_PCSI0022C_NoIndex_L006_001",  
-            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=PCSI0022C,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=PCSI0022C",   
+            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_Test_NoIndex_L006_001",  
+            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=Test,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=Test",   
             "dragmap.readGroupCheck.jobMemory": null,
             "dragmap.readGroupCheck.timeout": null,
             "dragmap.reference": "hg19",
@@ -671,17 +671,17 @@
             "dragmap.slicerR2.modules": null,
             "dragmap.slicerR2.timeout": null
         },
-        "description": "Runs the small PCSI_0022 C data with trimming, with splitting, single ended, and outputs as BAM.",
+        "description": "Runs the small data with trimming, with splitting, single ended, and outputs as BAM.",
         "engineArguments": {
             "write_to_cache": false,
             "read_from_cache": false
         },
-        "id": "PCSI0022C_trim_split_hg19_bam_se",
+        "id": "Test_trim_split_hg19_bam_se",
         "metadata": {
             "dragmap.dragmapBam": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg19_bam_se_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_trim_split_hg19_bam_se_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -689,7 +689,7 @@
             "dragmap.dragmapIndex": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg19_bam_se_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_trim_split_hg19_bam_se_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -697,7 +697,7 @@
             "dragmap.cutAdaptAllLogs": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg19_bam_se_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_trim_split_hg19_bam_se_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -705,7 +705,7 @@
             "dragmap.log": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg19_bam_se_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_trim_split_hg19_bam_se_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -715,7 +715,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.1.0/output_metrics/PCSI0022C_trim_split_hg19_bam_se.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/dragMap/output_metrics/workflow_test_06.metrics",
                 "type": "script"
             }
         ]
@@ -754,7 +754,7 @@
             "dragmap.extractUMIs.umiList": null,
             "dragmap.fastqR1": {
                 "contents": {
-                    "configuration": "/.mounts/labs/gsi/testdata/dragmap/input_data/PCSI0022C.val.1.fastq.gz",
+                    "configuration": "/.mounts/labs/gsi/testdata/dragMap/test_inputs/Test.val.1.fastq.gz",
                     "externalIds": [
                         {
                             "id": "TEST",
@@ -767,8 +767,8 @@
             "dragmap.fastqR2": null,
             "dragmap.numChunk": null,
             "dragmap.numReads": null,
-            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_PCSI0022C_NoIndex_L006_001",
-            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=PCSI0022C,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=PCSI0022C",
+            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_Test_NoIndex_L006_001",
+            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=Test,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=Test",
             "dragmap.readGroupCheck.jobMemory": null,
             "dragmap.readGroupCheck.timeout": null,
             "dragmap.reference": "hg19",
@@ -787,12 +787,12 @@
             "write_to_cache": false,
             "read_from_cache": false
         },
-        "id": "PCSI0022C_trim_nosplit_hg19_bam_se",
+        "id": "Test_trim_nosplit_hg19_bam_se",
         "metadata": {
             "dragmap.dragmapBam": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_nosplit_hg19_bam_se_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_trim_nosplit_hg19_bam_se_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -800,7 +800,7 @@
             "dragmap.dragmapIndex": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_nosplit_hg19_bam_se_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_trim_nosplit_hg19_bam_se_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -808,7 +808,7 @@
             "dragmap.cutAdaptAllLogs": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_nosplit_hg19_bam_se_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_trim_nosplit_hg19_bam_se_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -816,7 +816,7 @@
             "dragmap.log": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_nosplit_hg19_bam_se_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_trim_nosplit_hg19_bam_se_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -826,7 +826,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.1.0/output_metrics/PCSI0022C_trim_nosplit_hg19_bam_se.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/dragMap/output_metrics/workflow_test_07.metrics",
                 "type": "script"
             }
         ]
@@ -865,7 +865,7 @@
             "dragmap.extractUMIs.umiList": null,
             "dragmap.fastqR1": {
                 "contents": {
-                    "configuration": "/.mounts/labs/gsi/testdata/dragmap/input_data/PCSI0022C.val.1.fastq.gz",
+                    "configuration": "/.mounts/labs/gsi/testdata/dragMap/test_inputs/Test.val.1.fastq.gz",
                     "externalIds": [
                         {
                             "id": "TEST",
@@ -878,8 +878,8 @@
             "dragmap.fastqR2": null,
             "dragmap.numChunk": null,
             "dragmap.numReads": null,
-            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_PCSI0022C_NoIndex_L006_001",   
-            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=PCSI0022C,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=PCSI0022C",
+            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_Test_NoIndex_L006_001",   
+            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=Test,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=Test",
             "dragmap.readGroupCheck.jobMemory": null,
             "dragmap.readGroupCheck.timeout": null,
             "dragmap.reference": "hg19",
@@ -893,17 +893,17 @@
             "dragmap.slicerR2.modules": null,
             "dragmap.slicerR2.timeout": null
         },
-        "description": "Runs the small PCSI_0022 C data with trimming, with splitting, single ended, and outputs as BAM.",
+        "description": "Runs the small data with trimming, with splitting, single ended, and outputs as BAM.",
         "engineArguments": {
             "write_to_cache": false,
             "read_from_cache": false
         },
-        "id": "PCSI0022C_notrim_nosplit_hg19_bam_se",
+        "id": "Test_notrim_nosplit_hg19_bam_se",
         "metadata": {
             "dragmap.dragmapBam": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_notrim_nosplit_hg19_bam_se_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_notrim_nosplit_hg19_bam_se_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -911,7 +911,7 @@
             "dragmap.dragmapIndex": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_notrim_nosplit_hg19_bam_se_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_notrim_nosplit_hg19_bam_se_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -919,7 +919,7 @@
             "dragmap.cutAdaptAllLogs": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_notrim_nosplit_hg19_bam_se_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_notrim_nosplit_hg19_bam_se_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -927,7 +927,7 @@
             "dragmap.log": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_notrim_nosplit_hg19_bam_se_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_notrim_nosplit_hg19_bam_se_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -937,7 +937,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.1.0/output_metrics/PCSI0022C_notrim_nosplit_hg19_bam_se.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/dragMap/output_metrics/workflow_test_08.metrics",
                 "type": "script"
             }
         ]
@@ -976,7 +976,7 @@
             "dragmap.extractUMIs.umiList": null,
             "dragmap.fastqR1": {
                 "contents": {
-                    "configuration": "/.mounts/labs/gsi/testdata/dragmap/input_data/PCSI0022C.val.1.fastq.gz",
+                    "configuration": "/.mounts/labs/gsi/testdata/dragMap/test_inputs/Test.val.1.fastq.gz",
                     "externalIds": [
                         {
                             "id": "TEST",
@@ -988,7 +988,7 @@
             },
             "dragmap.fastqR2": {
                 "contents": {
-                    "configuration": "/.mounts/labs/gsi/testdata/dragmap/input_data/PCSI0022C.val.2.fastq.gz",
+                    "configuration": "/.mounts/labs/gsi/testdata/dragMap/test_inputs/Test.val.2.fastq.gz",
                     "externalIds": [
                         {
                             "id": "TEST",
@@ -1000,8 +1000,8 @@
             },
             "dragmap.numChunk": 4,
             "dragmap.numReads": null,
-            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_PCSI0022C_NoIndex_L006_001",   
-            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=PCSI0022C,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=PCSI0022C",   
+            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_Test_NoIndex_L006_001",   
+            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=Test,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=Test",   
             "dragmap.readGroupCheck.jobMemory": null,
             "dragmap.readGroupCheck.timeout": null,
             "dragmap.reference": "hg19",
@@ -1015,17 +1015,17 @@
             "dragmap.slicerR2.modules": null,
             "dragmap.slicerR2.timeout": null
         },
-        "description": "Runs the small PCSI_0022 C data with umi trimming and adapter trimming, with splitting, and outputs as BAM.",
+        "description": "Runs the small data with umi trimming and adapter trimming, with splitting, and outputs as BAM.",
         "engineArguments": {
             "write_to_cache": false,
             "read_from_cache": false
         },
-        "id": "PCSI0022C_umi_adapter_trim_split_hg19_bam",
+        "id": "Test_umi_adapter_trim_split_hg19_bam",
         "metadata": {
             "dragmap.dragmapBam": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_umi_adapter_trim_split_hg19_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_umi_adapter_trim_split_hg19_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -1033,7 +1033,7 @@
             "dragmap.dragmapIndex": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_umi_adapter_trim_split_hg19_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_umi_adapter_trim_split_hg19_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -1041,7 +1041,7 @@
             "dragmap.cutAdaptAllLogs": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_umi_adapter_trim_split_hg19_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_umi_adapter_trim_split_hg19_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -1049,7 +1049,7 @@
             "dragmap.log": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_umi_adapter_trim_split_hg19_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_umi_adapter_trim_split_hg19_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -1059,7 +1059,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.1.0/output_metrics/PCSI0022C_umi_adapter_trim_split_hg19_bam.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/dragMap/output_metrics/workflow_test_09.metrics",
                 "type": "script"
             }
         ]
@@ -1098,7 +1098,7 @@
             "dragmap.extractUMIs.umiList": null,
             "dragmap.fastqR1": {
                 "contents": {
-                    "configuration": "/.mounts/labs/gsi/testdata/dragmap/input_data/PCSI0022C.val.1.fastq.gz",
+                    "configuration": "/.mounts/labs/gsi/testdata/dragMap/test_inputs/Test.val.1.fastq.gz",
                     "externalIds": [
                         {
                             "id": "TEST",
@@ -1110,7 +1110,7 @@
             },
             "dragmap.fastqR2": {
                 "contents": {
-                    "configuration": "/.mounts/labs/gsi/testdata/dragmap/input_data/PCSI0022C.val.2.fastq.gz",
+                    "configuration": "/.mounts/labs/gsi/testdata/dragMap/test_inputs/Test.val.2.fastq.gz",
                     "externalIds": [
                         {
                             "id": "TEST",
@@ -1122,8 +1122,8 @@
             },
             "dragmap.numChunk": 4,
             "dragmap.numReads": 3713,
-            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_PCSI0022C_NoIndex_L006_001",   
-            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=PCSI0022C,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=PCSI0022C",   
+            "dragmap.outputFileNamePrefix": "121005_h804_0096_AD0V4NACXX_Test_NoIndex_L006_001",   
+            "dragmap.readGroups": "ID=121005_h804_0096_AD0V4NACXX-NoIndex_6,LB=Test,PL=ILLUMINA,PU=121005_h804_0096_AD0V4NACXX-NoIndex_6,SM=Test",   
             "dragmap.readGroupCheck.jobMemory": null,
             "dragmap.readGroupCheck.timeout": null,
             "dragmap.reference": "hg38",
@@ -1137,17 +1137,17 @@
             "dragmap.slicerR2.modules": null,
             "dragmap.slicerR2.timeout": null
         },
-        "description": "Runs the small PCSI_0022 C data with trimming, with splitting, with hg38, with numRead provided, and outputs as BAM.",
+        "description": "Runs the small data with trimming, with splitting, with hg38, with numRead provided, and outputs as BAM.",
         "engineArguments": {
             "write_to_cache": false,
             "read_from_cache": false
         },
-        "id": "PCSI0022C_trim_split_hg38_numRead_bam",
+        "id": "Test_trim_split_hg38_numRead_bam",
         "metadata": {
             "dragmap.dragmapBam": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg38_numRead_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_trim_split_hg38_numRead_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -1155,7 +1155,7 @@
             "dragmap.dragmapIndex": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg38_numRead_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_trim_split_hg38_numRead_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -1163,7 +1163,7 @@
             "dragmap.cutAdaptAllLogs": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg38_numRead_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_trim_split_hg38_numRead_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -1171,7 +1171,7 @@
             "dragmap.log": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_PCSI0022C_trim_split_hg38_numRead_bam_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_dragmap_Test_trim_split_hg38_numRead_bam_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -1181,7 +1181,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.1.0/output_metrics/PCSI0022C_trim_split_hg38_numRead_bam.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/dragMap/output_metrics/workflow_test_10.metrics",
                 "type": "script"
             }
         ]
@@ -1217,10 +1217,10 @@
             "dragmap.extractUMIs.pattern1": "(?P<umi_1>^[ACGT]{3}[ACG])(?P<discard_1>T)|(?P<umi_2>^[ACGT]{3})(?P<discard_2>T)",
             "dragmap.extractUMIs.pattern2": "(?P<umi_1>^[ACGT]{3}[ACG])(?P<discard_1>T)|(?P<umi_2>^[ACGT]{3})(?P<discard_2>T)",
             "dragmap.extractUMIs.timeout": null,
-            "dragmap.extractUMIs.umiList": "/.mounts/labs/gsi/testdata/dragmap/input_data/IDT_true_barcodes.txt",
+            "dragmap.extractUMIs.umiList": "/.mounts/labs/gsi/testdata/dragMap/test_inputs/IDT_true_barcodes.txt",
             "dragmap.fastqR1": {            
                 "contents": {
-                    "configuration": "/.mounts/labs/gsi/testdata/dragmap/input_data/r1.fastq.gz",
+                    "configuration": "/.mounts/labs/gsi/testdata/dragMap/test_inputs/r1.fastq.gz",
                     "externalIds": [
                         {
                             "id": "TEST",
@@ -1232,7 +1232,7 @@
             },
             "dragmap.fastqR2": {
                 "contents": {
-                    "configuration": "/.mounts/labs/gsi/testdata/dragmap/input_data/r2.fastq.gz",
+                    "configuration": "/.mounts/labs/gsi/testdata/dragMap/test_inputs/r2.fastq.gz",
                     "externalIds": [
                         {
                             "id": "TEST",
@@ -1244,8 +1244,8 @@
             },
             "dragmap.numChunk": null,
             "dragmap.numReads": null,
-            "dragmap.outputFileNamePrefix": "neat_5x_EX_hg19_golden",
-            "dragmap.readGroups": "ID=1,LB=neat_5x_EX_hg19_golden,PL=illumina,PU=run_barcode,SM=neat_5x_EX_hg19_golden",
+            "dragmap.outputFileNamePrefix": "Test_golden",
+            "dragmap.readGroups": "ID=1,LB=Test_golden,PL=illumina,PU=run_barcode,SM=neat_5x_EX_hg19_golden",
             "dragmap.readGroupCheck.jobMemory": null,
             "dragmap.readGroupCheck.timeout": null,
             "dragmap.reference": "hg19",
@@ -1259,7 +1259,7 @@
             "dragmap.slicerR2.modules": null,
             "dragmap.slicerR2.timeout": null
         },
-        "description": "Runs the small neat 5x data with umi extraction, without splitting, and outputs as BAM.",
+        "description": "Runs the small data with umi extraction, without splitting, and outputs as BAM.",
         "engineArguments": {
             "write_to_cache": false,
             "read_from_cache": false
@@ -1303,7 +1303,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/dragmap/1.1.0/output_metrics/neat_5x_umi_extract_nosplit_hg19_bam.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/dragMap/output_metrics/workflow_test_11.metrics",
                 "type": "script"
             }
         ]
